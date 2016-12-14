@@ -13,11 +13,17 @@
                     Stretch="UniformToFill" />
         </RelativePanel.Background>
         <!--Margin="40,149,46,459"-->
+        <TextBlock
+            Text="Connexion"  
+            Foreground="Black" 
+            FontSize="20"
+            FontWeight="Bold" Margin="129,76,6,519"/>
+        
         <TextBox x:Name="txtUsernameConnexion" 
                  PlaceholderText="Pseudo..."
                  Background="#505050"
                  Foreground="White"
-                 Margin="60,149,0,0"
+                 Margin="42,149,18,0"
                  Height="40"
                  Width="274"
                  HorizontalAlignment="Center"
@@ -28,7 +34,7 @@
                      PlaceholderText="Mot de passe..."
                      Background="#505050"
                      Foreground="White"
-                     Margin="60,10,0,0"
+                     Margin="42,12,18,-2"
                      Height="40"
                      Width="274"
                      BorderBrush="#FF2B2B2B" 
@@ -42,7 +48,7 @@
             Foreground="#FF2B2B2B" 
             Background="Transparent"
             FontSize="13"
-            Margin="92,252,0,359" Width="177"/>
+            Margin="92,252,-2,359" Width="177"/>
 
 
 
@@ -51,7 +57,7 @@
                 Foreground="White"
                 FontSize="20"
                 Background="#FF2B2B2B" 
-                Margin="76,317,0,272" 
+                Margin="74,317,0,272" 
                 Height="51" Width="210" 
                 />
 
@@ -67,7 +73,7 @@
                 Foreground="White"
                 FontSize="20"
                 Background="#FF2B2B2B" 
-                Margin="74,520,0,69" 
+                Margin="72,520,0,69" 
                 Height="51" Width="216" />
     </RelativePanel>
 </Page>

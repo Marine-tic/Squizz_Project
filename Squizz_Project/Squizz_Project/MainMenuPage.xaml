@@ -44,7 +44,7 @@
                 Foreground="White"
                 FontSize="20"
                 Background="#FF2B2B2B" 
-                Margin="106,192,0,397" 
+                Margin="104,192,0,397" 
                 Height="51" Width="152" 
                 />
 
@@ -54,7 +54,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B"  
                 Height="51" Width="152"
-                Margin="108,464,0,125" 
+                Margin="104,464,0,125" 
                 />
 
                 <Button x:Name="scores" 
@@ -63,7 +63,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Height="51" Width="152"
-                Margin="108,539,0,50" 
+                Margin="104,539,0,50" 
                 />
     </Grid>
 </Page>

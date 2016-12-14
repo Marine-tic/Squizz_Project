@@ -43,7 +43,7 @@
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="15"
-            Margin="41,329,45,256"/>
+            Margin="43,329,43,256"/>
 
 
         <Button x:Name="Create_Game" 

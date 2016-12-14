@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChoiceGameInterface.xaml.cs">
+      <DependentUpon>ChoiceGameInterface.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Proposal.cs" />
     <Compile Include="Classes\Question.cs" />
@@ -109,8 +112,20 @@
       <DependentUpon>ConnexionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules.xaml.cs">
+      <DependentUpon>Rules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsMultiPlayer.xaml.cs">
+      <DependentUpon>SettingsMultiPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsOnePlayer.xaml.cs">
+      <DependentUpon>SettingsOnePlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WriteGameInterface.xaml.cs">
+      <DependentUpon>WriteGameInterface.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,8 +137,10 @@
   <ItemGroup>
     <Content Include="Images\Claptrap.png" />
     <Content Include="Images\Cloptrop.png" />
+    <Content Include="Images\dish.jpg" />
     <Content Include="Images\help.png" />
     <Content Include="Images\s%27Quizz.png" />
+    <Content Include="Images\sky.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -138,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ChoiceGameInterface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameTypeSelectionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,7 +171,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Rules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsMultiPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsOnePlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SignInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WriteGameInterface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
