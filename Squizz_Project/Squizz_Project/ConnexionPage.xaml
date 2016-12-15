@@ -58,7 +58,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="74,317,0,272" 
-                Height="51" Width="210" 
+                Height="51" Width="210" Click="btnConnexion_Click" 
                 />
 
         <Path Stroke="#FF2B2B2B" 

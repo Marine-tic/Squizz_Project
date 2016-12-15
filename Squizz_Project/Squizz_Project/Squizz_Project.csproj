@@ -115,6 +115,11 @@
     <Compile Include="Rules.xaml.cs">
       <DependentUpon>Rules.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="SettingsMultiPlayer.xaml.cs">
       <DependentUpon>SettingsMultiPlayer.xaml</DependentUpon>
     </Compile>
@@ -132,6 +137,14 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\WebService\RestService.wsdl" />
+    <None Include="Service References\WebService\RestService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebService\RestService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Squizz_Project_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +162,13 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <None Include="Service References\WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebService\configuration.svcinfo" />
+    <None Include="Service References\WebService\configuration91.svcinfo" />
+    <None Include="Service References\WebService\RestService.disco" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -191,6 +211,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebService\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.ServiceModel;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,8 +28,18 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(360, 640);
+            //RestServiceClient toto = new RestServiceClient();
+            //string result;
+
+            //result = toto.sayHelloTo("La cuccaracha");
+            //txtUsernameConnexion.Text = result;
         }
 
+        private void btnConnexion_Click(object sender, RoutedEventArgs e)
+        {
+            //WebServiceSquizz.Service1Client wololo = new WebServiceSquizz.Service1Client();
+            //WebService.RestServiceClient aze = new WebService.RestServiceClient();
+        }
     }
     
 }

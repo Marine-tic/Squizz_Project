@@ -1,1 +1,1 @@
-C:\Users\lg403756\Documents\LPSIL-DAM\Squizz_Project\Squizz_Project\Squizz_Project.csproj;x86
+D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Squizz_Project.csproj;x86

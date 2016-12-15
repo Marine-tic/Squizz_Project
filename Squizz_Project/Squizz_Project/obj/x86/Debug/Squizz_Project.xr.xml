@@ -10,8 +10,12 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
+      <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="Margin" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
+      <RootMethod Name="GetColumnSpan" />
+      <RootMethod Name="SetColumnSpan" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="ImageSource" />
@@ -19,18 +23,25 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
+      <RootProperty Name="TextAlignment" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Margin" />
       <RootProperty Name="TextWrapping" />
-      <RootProperty Name="TextAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Source" />
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Opacity" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
@@ -40,7 +51,9 @@
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="HorizontalContentAlignment" />
+      <RootEvent Name="Click" />
     </RootType>
+    <RootType FullName="Squizz_Project.ChoiceGameInterface" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Path">
       <RootProperty Name="Stroke" />
       <RootProperty Name="StrokeThickness" />
@@ -50,12 +63,6 @@
       <RootProperty Name="Stretch" />
     </RootType>
     <RootType FullName="Squizz_Project.GameTypeSelectionPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Source" />
-      <RootProperty Name="Stretch" />
-      <RootProperty Name="Opacity" />
-      <RootProperty Name="Margin" />
-    </RootType>
     <RootType FullName="Squizz_Project.MainMenuPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="MinHeight" />
@@ -90,6 +97,31 @@
       <RootProperty Name="FontSize" />
     </RootType>
     <RootType FullName="Squizz_Project.ConnexionPage" />
+    <RootType FullName="Squizz_Project.Rules" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Slider">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TickFrequency" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+    </RootType>
+    <RootType FullName="System.String" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Squizz_Project.SettingsMultiPlayer" />
+    <RootType FullName="Squizz_Project.SettingsOnePlayer" />
     <RootType FullName="Squizz_Project.SignInPage" />
+    <RootType FullName="Squizz_Project.WriteGameInterface" />
   </Roots.RootTypes>
 </Roots>
