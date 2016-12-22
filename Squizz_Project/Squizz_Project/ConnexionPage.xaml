@@ -50,8 +50,6 @@
             FontSize="13"
             Margin="92,252,-2,359" Width="177"/>
 
-
-
         <Button x:Name="btnConnexion" 
                 Content="Connexion" 
                 Foreground="White"

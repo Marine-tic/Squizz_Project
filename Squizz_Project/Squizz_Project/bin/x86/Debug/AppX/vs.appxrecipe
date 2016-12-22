@@ -28,13 +28,13 @@
     <AppXManifest Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-15T23:15:31.887</Modified>
+      <Modified>2016-12-22T22:47:46.672</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\bin\x86\Debug\Squizz_Project.exe">
       <PackagePath>entrypoint\Squizz_Project.exe</PackagePath>
-      <Modified>2016-12-15T23:15:31.650</Modified>
+      <Modified>2016-12-22T22:47:46.003</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Scott\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -450,69 +450,69 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Images\Claptrap.png">
       <PackagePath>Images\Claptrap.png</PackagePath>
-      <Modified>2016-12-14T12:56:55.555</Modified>
+      <Modified>2016-12-22T21:47:37.475</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Images\Cloptrop.png">
       <PackagePath>Images\Cloptrop.png</PackagePath>
-      <Modified>2016-12-14T12:56:55.555</Modified>
+      <Modified>2016-12-22T21:47:37.477</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Images\help.png">
       <PackagePath>Images\help.png</PackagePath>
-      <Modified>2016-12-14T12:56:55.571</Modified>
+      <Modified>2016-12-22T21:47:37.488</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Images\s%27Quizz.png">
       <PackagePath>Images\s%27Quizz.png</PackagePath>
-      <Modified>2016-12-14T12:56:55.571</Modified>
+      <Modified>2016-12-22T21:47:37.489</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.480</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.481</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.482</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.482</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.490</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.491</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T12:56:55.430</Modified>
+      <Modified>2016-12-22T21:47:31.491</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Images\dish.jpg">
       <PackagePath>Images\dish.jpg</PackagePath>
-      <Modified>2016-12-14T12:56:55.571</Modified>
+      <Modified>2016-12-22T21:47:37.487</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Images\sky.jpg">
       <PackagePath>Images\sky.jpg</PackagePath>
-      <Modified>2016-12-14T12:56:55.593</Modified>
+      <Modified>2016-12-22T21:47:37.496</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2016-12-14T12:56:55.624</Modified>
+      <Modified>2016-12-22T21:47:38.407</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\bin\x86\Debug\Squizz_Project.xr.xml">
       <PackagePath>Squizz_Project.xr.xml</PackagePath>
-      <Modified>2016-12-15T23:13:35.522</Modified>
+      <Modified>2016-12-22T22:45:13.741</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -521,11 +521,11 @@
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-15T23:13:37.119</Modified>
+      <Modified>2016-12-22T22:47:46.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Development\ProjectWindowsPhone\Squizz_Project\Squizz_Project\Squizz_Project\bin\x86\Debug\Core\Squizz_Project.exe">
       <PackagePath>Squizz_Project.exe</PackagePath>
-      <Modified>2016-12-15T23:15:31.884</Modified>
+      <Modified>2016-12-22T22:47:46.669</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

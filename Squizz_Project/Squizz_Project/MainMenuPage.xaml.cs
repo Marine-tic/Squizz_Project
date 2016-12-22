@@ -26,5 +26,25 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            if (StandardPopup.IsOpen) StandardPopup.IsOpen = false;
+        }
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (StandardPopup.IsOpen == false)
+            {
+                StandardPopup.IsOpen = true;
+                System.Diagnostics.Debug.WriteLine("coucou");
+            }
+            else
+            {
+                StandardPopup.IsOpen = false;
+                System.Diagnostics.Debug.WriteLine("pas coucou");
+            }
+
+        }
     }
 }
