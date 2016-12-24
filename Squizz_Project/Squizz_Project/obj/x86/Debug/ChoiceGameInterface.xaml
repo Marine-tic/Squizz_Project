@@ -21,48 +21,48 @@
             FontWeight="Bold" 
             Margin="121,79,120,532"/>
 
-        <Image Source="Images/dish.jpg" 
+        <Image x:ConnectionId='1' x:Name="ImageGame" Source="Images/dish.jpg"
                    Stretch="Uniform" 
                    Margin="12,136,12,286"/>
 
         <!-- LEFT BUTTONS -->
-        <Button x:ConnectionId='1' x:Name="answerTopLeft" 
+        <Button x:ConnectionId='2' x:Name="answerTopLeft" 
                 Content="GTA" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
                 Margin="22,423,0,166" 
-                Height="51" Width="152" 
+                Height="51" Width="152"                              
                 />
-        <Button x:ConnectionId='2' x:Name="answerBottomLeft" 
+        <Button x:ConnectionId='3' x:Name="answerBottomLeft" 
                 Content="Tomb Raider" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
                 Margin="22,498,0,91" 
-                Height="51" Width="152" 
+                Height="51" Width="152"                                  
                 />
 
         <!-- RIGHT BUTTONS -->
-        <Button x:ConnectionId='3' x:Name="answerTopRight" 
+        <Button x:ConnectionId='4' x:Name="answerTopRight" 
                 Content="Dishonored" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
                 Margin="186,423,0,166" 
-                Height="51" Width="152" 
+                Height="51" Width="152"                                
                 />
-        <Button x:ConnectionId='4' x:Name="answerBottomRight" 
+        <Button x:ConnectionId='5' x:Name="answerBottomRight" 
                 Content="Bioshock" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
                 Margin="186,498,0,91" 
-                Height="51" Width="152" 
+                Height="51" Width="152"                                  
                 />
 
     </Grid>

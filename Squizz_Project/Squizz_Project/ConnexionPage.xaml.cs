@@ -40,6 +40,30 @@ namespace Squizz_Project
             //WebServiceSquizz.Service1Client wololo = new WebServiceSquizz.Service1Client();
             //WebService.RestServiceClient aze = new WebService.RestServiceClient();
         }
+
+        
+        private void forgotPassword_Click(object sender, TappedRoutedEventArgs e)
+        {
+            // Changement d'interface pour que l'utilisateur renseigne son adresse mail
+            // Page : ForgotPassword
+            this.Frame.Navigate(typeof(ForgotPassword), null);
+
+        }
+
+        private void Connexion_Click(object sender, TappedRoutedEventArgs e)
+        {
+            // Redirection vers la page principale du jeu 
+
+            // Faire un check en BDD pour savoir si l'utilisateur existe
+
+            // Faire une check pour savoir si l'utilisateur et mot de passe correspondent
+        }
+
+        private void NewAccount_Click(object sender, TappedRoutedEventArgs e)
+        {
+            // Redirection vers la page de création d'utilisateur 
+            this.Frame.Navigate(typeof(SignInPage), null);
+        }
     }
     
 }

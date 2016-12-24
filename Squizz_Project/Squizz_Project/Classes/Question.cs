@@ -9,9 +9,9 @@ namespace Squizz_Project
     public class Question
     {
         private int id;
-        private string questionName;
+        private string questionName; //on vire
         private string urlImage;
-        private int idProposal;
+        private int idProposalAnswer;
 
         public int Id
         {
@@ -52,25 +52,25 @@ namespace Squizz_Project
             }
         }
 
-        public int IdProposal
+        public int IdProposalAnswer //permet d'avoir un reférence, on peut s'en passer
         {
             get
             {
-                return idProposal;
+                return idProposalAnswer;
             }
 
             set
             {
-                idProposal = value;
+                idProposalAnswer = value;
             }
         }
 
-        public Question(int id, string question, string urlImage, int idProposal)
+        public Question(int id, string question, string urlImage, int idProposalAnswer)
         {
             this.id = id;
             this.questionName = question;
             this.urlImage = urlImage;
-            this.idProposal = idProposal;
+            this.idProposalAnswer = idProposalAnswer;
         }
     }
 }

@@ -102,6 +102,9 @@
     <Compile Include="Classes\Proposal.cs" />
     <Compile Include="Classes\Question.cs" />
     <Compile Include="Classes\Score.cs" />
+    <Compile Include="ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameTypeSelectionPage.xaml.cs">
       <DependentUpon>GameTypeSelectionPage.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="ChoiceGameInterface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForgotPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

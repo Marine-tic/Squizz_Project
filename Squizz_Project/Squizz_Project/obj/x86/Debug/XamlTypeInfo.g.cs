@@ -132,31 +132,33 @@ namespace Squizz_Project.Squizz_Project_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[11];
+            _typeNameTable = new string[12];
             _typeNameTable[0] = "Squizz_Project.ChoiceGameInterface";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Squizz_Project.GameTypeSelectionPage";
-            _typeNameTable[4] = "Squizz_Project.MainMenuPage";
-            _typeNameTable[5] = "Squizz_Project.ConnexionPage";
-            _typeNameTable[6] = "Squizz_Project.Rules";
-            _typeNameTable[7] = "Squizz_Project.SettingsMultiPlayer";
-            _typeNameTable[8] = "Squizz_Project.SettingsOnePlayer";
-            _typeNameTable[9] = "Squizz_Project.SignInPage";
-            _typeNameTable[10] = "Squizz_Project.WriteGameInterface";
+            _typeNameTable[3] = "Squizz_Project.ForgotPassword";
+            _typeNameTable[4] = "Squizz_Project.GameTypeSelectionPage";
+            _typeNameTable[5] = "Squizz_Project.MainMenuPage";
+            _typeNameTable[6] = "Squizz_Project.ConnexionPage";
+            _typeNameTable[7] = "Squizz_Project.Rules";
+            _typeNameTable[8] = "Squizz_Project.SettingsMultiPlayer";
+            _typeNameTable[9] = "Squizz_Project.SettingsOnePlayer";
+            _typeNameTable[10] = "Squizz_Project.SignInPage";
+            _typeNameTable[11] = "Squizz_Project.WriteGameInterface";
 
-            _typeTable = new global::System.Type[11];
+            _typeTable = new global::System.Type[12];
             _typeTable[0] = typeof(global::Squizz_Project.ChoiceGameInterface);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Squizz_Project.GameTypeSelectionPage);
-            _typeTable[4] = typeof(global::Squizz_Project.MainMenuPage);
-            _typeTable[5] = typeof(global::Squizz_Project.ConnexionPage);
-            _typeTable[6] = typeof(global::Squizz_Project.Rules);
-            _typeTable[7] = typeof(global::Squizz_Project.SettingsMultiPlayer);
-            _typeTable[8] = typeof(global::Squizz_Project.SettingsOnePlayer);
-            _typeTable[9] = typeof(global::Squizz_Project.SignInPage);
-            _typeTable[10] = typeof(global::Squizz_Project.WriteGameInterface);
+            _typeTable[3] = typeof(global::Squizz_Project.ForgotPassword);
+            _typeTable[4] = typeof(global::Squizz_Project.GameTypeSelectionPage);
+            _typeTable[5] = typeof(global::Squizz_Project.MainMenuPage);
+            _typeTable[6] = typeof(global::Squizz_Project.ConnexionPage);
+            _typeTable[7] = typeof(global::Squizz_Project.Rules);
+            _typeTable[8] = typeof(global::Squizz_Project.SettingsMultiPlayer);
+            _typeTable[9] = typeof(global::Squizz_Project.SettingsOnePlayer);
+            _typeTable[10] = typeof(global::Squizz_Project.SignInPage);
+            _typeTable[11] = typeof(global::Squizz_Project.WriteGameInterface);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -192,14 +194,15 @@ namespace Squizz_Project.Squizz_Project_XamlTypeInfo
         }
 
         private object Activate_0_ChoiceGameInterface() { return new global::Squizz_Project.ChoiceGameInterface(); }
-        private object Activate_3_GameTypeSelectionPage() { return new global::Squizz_Project.GameTypeSelectionPage(); }
-        private object Activate_4_MainMenuPage() { return new global::Squizz_Project.MainMenuPage(); }
-        private object Activate_5_ConnexionPage() { return new global::Squizz_Project.ConnexionPage(); }
-        private object Activate_6_Rules() { return new global::Squizz_Project.Rules(); }
-        private object Activate_7_SettingsMultiPlayer() { return new global::Squizz_Project.SettingsMultiPlayer(); }
-        private object Activate_8_SettingsOnePlayer() { return new global::Squizz_Project.SettingsOnePlayer(); }
-        private object Activate_9_SignInPage() { return new global::Squizz_Project.SignInPage(); }
-        private object Activate_10_WriteGameInterface() { return new global::Squizz_Project.WriteGameInterface(); }
+        private object Activate_3_ForgotPassword() { return new global::Squizz_Project.ForgotPassword(); }
+        private object Activate_4_GameTypeSelectionPage() { return new global::Squizz_Project.GameTypeSelectionPage(); }
+        private object Activate_5_MainMenuPage() { return new global::Squizz_Project.MainMenuPage(); }
+        private object Activate_6_ConnexionPage() { return new global::Squizz_Project.ConnexionPage(); }
+        private object Activate_7_Rules() { return new global::Squizz_Project.Rules(); }
+        private object Activate_8_SettingsMultiPlayer() { return new global::Squizz_Project.SettingsMultiPlayer(); }
+        private object Activate_9_SettingsOnePlayer() { return new global::Squizz_Project.SettingsOnePlayer(); }
+        private object Activate_10_SignInPage() { return new global::Squizz_Project.SignInPage(); }
+        private object Activate_11_WriteGameInterface() { return new global::Squizz_Project.WriteGameInterface(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -226,58 +229,65 @@ namespace Squizz_Project.Squizz_Project_XamlTypeInfo
                 xamlType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Squizz_Project.GameTypeSelectionPage
+            case 3:   //  Squizz_Project.ForgotPassword
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_GameTypeSelectionPage;
+                userType.Activator = Activate_3_ForgotPassword;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Squizz_Project.MainMenuPage
+            case 4:   //  Squizz_Project.GameTypeSelectionPage
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainMenuPage;
+                userType.Activator = Activate_4_GameTypeSelectionPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  Squizz_Project.ConnexionPage
+            case 5:   //  Squizz_Project.MainMenuPage
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_ConnexionPage;
+                userType.Activator = Activate_5_MainMenuPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  Squizz_Project.Rules
+            case 6:   //  Squizz_Project.ConnexionPage
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_Rules;
+                userType.Activator = Activate_6_ConnexionPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Squizz_Project.SettingsMultiPlayer
+            case 7:   //  Squizz_Project.Rules
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_SettingsMultiPlayer;
+                userType.Activator = Activate_7_Rules;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  Squizz_Project.SettingsOnePlayer
+            case 8:   //  Squizz_Project.SettingsMultiPlayer
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_SettingsOnePlayer;
+                userType.Activator = Activate_8_SettingsMultiPlayer;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Squizz_Project.SignInPage
+            case 9:   //  Squizz_Project.SettingsOnePlayer
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_SignInPage;
+                userType.Activator = Activate_9_SettingsOnePlayer;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Squizz_Project.WriteGameInterface
+            case 10:   //  Squizz_Project.SignInPage
                 userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_WriteGameInterface;
+                userType.Activator = Activate_10_SignInPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  Squizz_Project.WriteGameInterface
+                userType = new global::Squizz_Project.Squizz_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_WriteGameInterface;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

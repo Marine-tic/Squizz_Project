@@ -45,7 +45,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="104,192,0,397" 
-                Height="51" Width="152" 
+                Height="51" Width="152"                     
                 />
 
         <Button x:ConnectionId='2' x:Name="btsettings" 

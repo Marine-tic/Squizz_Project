@@ -25,7 +25,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="104,194,0,395" 
-                Height="51" Width="152" 
+                Height="51" Width="152"                         
                 />
 
         <Path Stroke="#FF2B2B2B" 
@@ -37,7 +37,7 @@
 
 
         <TextBlock 
-            Text="Activer le Bluetooth avec de créer ou rejoindre une partie"
+            Text="Activer le Bluetooth avant de créer ou rejoindre une partie"
             TextWrapping="Wrap"
             FontWeight="Bold"
             TextAlignment="Center"

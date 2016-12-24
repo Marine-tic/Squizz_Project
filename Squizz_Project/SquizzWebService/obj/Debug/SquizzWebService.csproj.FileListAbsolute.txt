@@ -17,3 +17,22 @@ c:\users\scott\documents\visual studio 2015\Projects\SquizzWebService\SquizzWebS
 c:\users\scott\documents\visual studio 2015\Projects\SquizzWebService\SquizzWebService\obj\Debug\SquizzWebService.csprojResolveAssemblyReference.cache
 c:\users\scott\documents\visual studio 2015\Projects\SquizzWebService\SquizzWebService\obj\Debug\SquizzWebService.dll
 c:\users\scott\documents\visual studio 2015\Projects\SquizzWebService\SquizzWebService\obj\Debug\SquizzWebService.pdb
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\ApplicationInsights.config
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\SquizzWebService.dll.config
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\SquizzWebService.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\SquizzWebService.pdb
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.Web.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.Web.xml
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\obj\Debug\SquizzWebService.csprojResolveAssemblyReference.cache
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\obj\Debug\SquizzWebService.dll
+C:\Users\Auna\Desktop\Squizz_Project\Squizz_Project\SquizzWebService\obj\Debug\SquizzWebService.pdb

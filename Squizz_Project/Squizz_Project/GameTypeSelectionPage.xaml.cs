@@ -26,5 +26,11 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
         }
+
+        private void SoloGame_Click(object sender, TappedRoutedEventArgs e)
+        {
+            // Changement d'interface vers celle du jeu 
+            this.Frame.Navigate(typeof(ChoiceGameInterface), null);
+        }
     }
 }

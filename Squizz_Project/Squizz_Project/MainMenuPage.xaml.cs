@@ -26,5 +26,11 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
         }
+
+        private void Play_Click(object sender, TappedRoutedEventArgs e)
+        {
+            // Redirection vers la pas du choix de type de jeu
+            this.Frame.Navigate(typeof(GameTypeSelectionPage), null);
+        }
     }
 }

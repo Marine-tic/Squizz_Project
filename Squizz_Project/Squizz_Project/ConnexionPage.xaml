@@ -30,7 +30,7 @@
                  BorderBrush="#FF2B2B2B"/>
 
         <!--Margin="40,197,46,411"-->
-        <PasswordBox x:Name="txtPassword" 
+        <PasswordBox x:Name="txtUserNamePassword" 
                      PlaceholderText="Mot de passe..."
                      Background="#505050"
                      Foreground="White"
@@ -42,13 +42,13 @@
                      RelativePanel.AlignLeftWith="txtUsernameConnexion" HorizontalAlignment="Center"
                      />
 
-        <Button
+        <Button x:Name="btnForgotPwd"
             Content="Mot de passe oublié ?" 
             HorizontalContentAlignment="Center"
             Foreground="#FF2B2B2B" 
             Background="Transparent"
             FontSize="13"
-            Margin="92,252,-2,359" Width="177"/>
+            Margin="92,252,-2,359" Width="177" Tapped="forgotPassword_Click"/>
 
 
 
@@ -58,7 +58,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="74,317,0,272" 
-                Height="51" Width="210" Click="btnConnexion_Click" 
+                Height="51" Width="210" Click="btnConnexion_Click" Tapped="Connexion_Click" 
                 />
 
         <Path Stroke="#FF2B2B2B" 
@@ -74,6 +74,6 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="72,520,0,69" 
-                Height="51" Width="216" />
+                Height="51" Width="216" Tapped="NewAccount_Click" />
     </RelativePanel>
 </Page>
