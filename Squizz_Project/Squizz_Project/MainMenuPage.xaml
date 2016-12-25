@@ -24,8 +24,19 @@
             <Image Source="Images/s'Quizz.png" 
                    Opacity="1" 
                    Stretch="UniformToFill"
-                   Margin="0,-1,10,10"/>
+                   Margin="0,-1,10,10" Tapped="Image_Tapped"/>
         </Button>
+
+        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="200" Height="200">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Put the rules here" FontSize="24.667" HorizontalAlignment="Center"/>
+                    <Button Content="Close" Click="btnClose_Click" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Popup>
 
         <Button 
             Grid.Column="0" 

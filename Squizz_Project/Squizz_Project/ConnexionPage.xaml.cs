@@ -27,18 +27,13 @@ namespace Squizz_Project
         public ConnexionPage()
         {
             this.InitializeComponent();
-            ApplicationView.PreferredLaunchViewSize = new Size(360, 640);
-            //RestServiceClient toto = new RestServiceClient();
-            //string result;
-
-            //result = toto.sayHelloTo("La cuccaracha");
-            //txtUsernameConnexion.Text = result;
+           // ApplicationView.PreferredLaunchViewSize = new Size(360, 640);
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(400, 650));
         }
 
         private void btnConnexion_Click(object sender, RoutedEventArgs e)
         {
-            //WebServiceSquizz.Service1Client wololo = new WebServiceSquizz.Service1Client();
-            //WebService.RestServiceClient aze = new WebService.RestServiceClient();
+            //TODO: connexion to the DB via Web service if it exists
         }
 
         
