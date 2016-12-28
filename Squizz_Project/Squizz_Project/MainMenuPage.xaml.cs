@@ -24,7 +24,6 @@ namespace Squizz_Project
         public MainMenuPage()
         {
             this.InitializeComponent();
-            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
         /// <summary>
@@ -34,7 +33,7 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private void Play_Click(object sender, TappedRoutedEventArgs e)
         {
-            // Redirection vers la pas du choix de type de jeu
+            // Redirection vers la page du choix de type de jeu
             Frame.Navigate(typeof(GameTypeSelectionPage), null);
         }
 
@@ -45,18 +44,8 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private void scores_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            // Redirection vers la page du tableau des scores
             Frame.Navigate(typeof(ScoreboardPage), null);
         }
-
-        private void OnBackRequested(object sender, BackRequestedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame.CanGoBack)
-            {
-                e.Handled = true;
-                rootFrame.GoBack();
-            }
-        }
-
     }
 }

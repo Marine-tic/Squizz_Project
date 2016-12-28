@@ -60,6 +60,7 @@ namespace Squizz_Project
             // Utiliser ensuite la meme mécanique sauf que la mise à jour des score sera faite en BDD.
 
             // Voir quand la partie se termine? Combien de question doit être répondu correct pour que le joueur gagne la partie et voit son score augmenté?
+            // => une partie dispose de 10 questions
         }
 
         private void initGame()
@@ -110,20 +111,19 @@ namespace Squizz_Project
         {
             if (proposalSelected.IsAnswer)
             {
+                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 22, 169, 49));
                 var dialog = new MessageDialog(YOU_WIN);
                 await dialog.ShowAsync();
-                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 22, 169, 49));
-                
-
             }
             else
             {
+                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
                 var dialog = new MessageDialog(YOU_LOSE);
                 await dialog.ShowAsync();
-                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
             }
         }
 
+        #region BOUTON RETOUR
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
@@ -141,6 +141,7 @@ namespace Squizz_Project
             else
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
+        #endregion
 
 
     }

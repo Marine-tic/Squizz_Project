@@ -1,4 +1,6 @@
 ﻿using System;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -14,15 +16,16 @@ namespace Squizz_Project
     /// </summary>
     public sealed partial class GameTypeSelectionPage : Page
     {
+
         public GameTypeSelectionPage()
         {
             InitializeComponent();
-
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
+        #region bouton retour
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
@@ -40,13 +43,15 @@ namespace Squizz_Project
             else
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
+        #endregion
 
         private void SoloGame_Click(object sender, TappedRoutedEventArgs e)
         {
             // Changement d'interface vers celle du jeu 
             Random rand = new Random();
+            int typePartie = rand.Next(0, 1);
 
-            if (rand.Next(0, 2) == 0)
+            if (typePartie == 0)
                 Frame.Navigate(typeof(ChoiceGameInterface), null);
             else
                 Frame.Navigate(typeof(WriteGameInterface), null);
