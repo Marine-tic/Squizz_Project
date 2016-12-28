@@ -49,12 +49,18 @@ namespace Squizz_Project
         {
             // Changement d'interface vers celle du jeu 
             Random rand = new Random();
-            int typePartie = rand.Next(0, 1);
+            int typePartie = rand.Next(0, 2);
+            int cpt = 1;
 
             if (typePartie == 0)
                 Frame.Navigate(typeof(ChoiceGameInterface), null);
             else
                 Frame.Navigate(typeof(WriteGameInterface), null);
+        }
+
+        private void Create_Game_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingsMultiPlayer), null);
         }
     }
 }

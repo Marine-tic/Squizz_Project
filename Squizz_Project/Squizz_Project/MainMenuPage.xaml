@@ -67,7 +67,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B"  
                 Height="51"
-                Margin="104,464,104,125" HorizontalAlignment="Stretch"
+                Margin="104,464,104,125" HorizontalAlignment="Stretch" Tapped="btnSettings_Tapped"
                 />
 
         <Button x:Name="scores" 

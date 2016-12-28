@@ -47,5 +47,10 @@ namespace Squizz_Project
             // Redirection vers la page du tableau des scores
             Frame.Navigate(typeof(ScoreboardPage), null);
         }
+
+        private void btnSettings_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingsOnePlayer), null);
+        }
     }
 }

@@ -50,6 +50,18 @@ namespace Squizz_Project
 
         }
 
+        private void Randomizer()
+        {
+            Random rand = new Random();
+            int typePartie = rand.Next(0, 1);
+
+            if (typePartie == 0)
+                Frame.Navigate(typeof(ChoiceGameInterface), null);
+            else
+                Frame.Navigate(typeof(WriteGameInterface), null);
+
+        }
+
         /// <summary>
         /// Bouton de validation du joueur
         /// </summary>
@@ -57,17 +69,21 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private async void validateAnswer_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            int cpt = 1;
             if (txtPlayerAnswer.Text == question.QuestionName)
             {
                 var dialog = new MessageDialog("WINNER");
                 await dialog.ShowAsync();
+                Randomizer();
                 txtPlayerAnswer.IsReadOnly = true;
+                cpt++;
             }
             else
             {
                 var dialog = new MessageDialog("LOSER");
                 await dialog.ShowAsync();
                 txtPlayerAnswer.IsReadOnly = true;
+                Frame.Navigate(typeof(MainMenuPage), null);
             }
 
         }

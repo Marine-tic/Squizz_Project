@@ -41,7 +41,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B"
                 Margin="75,411,75,178"
-                Height="51" HorizontalAlignment="Stretch" />
+                Height="51" HorizontalAlignment="Stretch" Tapped="Create_Game_Tapped" />
 
         <Button x:Name="Join_Game"
                 Content="Rejoindre une partie"

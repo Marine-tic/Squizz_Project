@@ -109,19 +109,37 @@ namespace Squizz_Project
 
         private async void CheckWin(Proposal proposalSelected, Button buttonProposal)
         {
+            int cpt = 1;
             if (proposalSelected.IsAnswer)
             {
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 22, 169, 49));
                 var dialog = new MessageDialog(YOU_WIN);
                 await dialog.ShowAsync();
+                Randomizer();
             }
             else
             {
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
                 var dialog = new MessageDialog(YOU_LOSE);
                 await dialog.ShowAsync();
+                Frame.Navigate(typeof(MainMenuPage), null);
             }
         }
+
+        /// <summary>
+        /// Permet de switcher de type de question
+        /// </summary>
+        private void Randomizer()
+        {
+            Random rand = new Random();
+            int typePartie = rand.Next(0, 2);
+
+            if (typePartie == 0)
+                Frame.Navigate(typeof(ChoiceGameInterface), null);
+            else
+                Frame.Navigate(typeof(WriteGameInterface), null);
+        }
+
 
         #region BOUTON RETOUR
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
