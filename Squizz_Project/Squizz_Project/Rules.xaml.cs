@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,36 @@ namespace Squizz_Project
         public Rules()
         {
             this.InitializeComponent();
+            Frame root = Window.Current.Content as Frame;
+            root.Navigated += OnNavigated;
+        }
+
+        private void OnNavigated(Object sender, NavigationEventArgs e)
+        {
+            if (((Frame)sender).CanGoBack)
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            else
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame root = Window.Current.Content as Frame;
+            if(root.CanGoBack)
+            {
+                e.Handled = true;
+                root.GoBack();
+            }
+        }
+
+        /// <summary>
+        /// Bouton de retour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+           this.Frame.Navigate(typeof(MainMenuPage), null);
         }
     }
 }

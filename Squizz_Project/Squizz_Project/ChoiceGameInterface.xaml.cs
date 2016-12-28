@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Squizz_Project.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -23,11 +25,7 @@ namespace Squizz_Project
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    /// 
-    
-        
-  
-
+    ///
     public sealed partial class ChoiceGameInterface : Page
     {
         // Déclarer une question et 4 propositions
@@ -38,13 +36,20 @@ namespace Squizz_Project
         private Proposal proposal3;
         private const String YOU_WIN = "YOU WIN !";
         private const String YOU_LOSE = "YOU LOSE !";
+        private Questions listeDeQuestion;
 
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
+
+            Frame root = Window.Current.Content as Frame;
+            root.Navigated += OnNavigated;
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+
             initGame();
 
             // Ensuite faire une liste de questions avec une liste de proposition associé à chaque question et prendre un nombre aléatoire pour la sélection de la question
+            listeDeQuestion = new Questions();
             // Remplir les champs en conséquence de la même manière que plus haut.
             // Remplacer l'evenement OK et PERDU par une nouvelle question s'il y en a une nouvelle ou alors PERDU avec un écran de perdu? à voir en fonction des interfaces déjà présentes
 
@@ -119,6 +124,23 @@ namespace Squizz_Project
             }
         }
 
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            if (((Frame)sender).CanGoBack)
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            else
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
 
 
     }

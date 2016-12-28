@@ -38,13 +38,13 @@
             FontSize="15"
             Margin="41,388,45,116"/>
         
-        <Button x:Name="rules_return" 
+        <Button x:Name="btnBack" 
                 Content="Retour" 
                 Foreground="White"
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Height="51" Width="152"
-                Margin="108,539,0,50" 
+                Margin="108,539,0,50" Click="btnBack_Click" 
                 />
 
     </Grid>

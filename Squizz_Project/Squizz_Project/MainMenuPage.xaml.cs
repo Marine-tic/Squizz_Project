@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -12,8 +13,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
-// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Squizz_Project
 {
@@ -25,12 +24,39 @@ namespace Squizz_Project
         public MainMenuPage()
         {
             this.InitializeComponent();
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
+        /// <summary>
+        /// Bouton pour accéder à la sélection des modes de jeux
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Play_Click(object sender, TappedRoutedEventArgs e)
         {
             // Redirection vers la pas du choix de type de jeu
-            this.Frame.Navigate(typeof(GameTypeSelectionPage), null);
+            Frame.Navigate(typeof(GameTypeSelectionPage), null);
         }
+
+        /// <summary>
+        /// Bouton pour accéder au tableau des scores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void scores_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ScoreboardPage), null);
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+        }
+
     }
 }

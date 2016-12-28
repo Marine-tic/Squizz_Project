@@ -21,7 +21,7 @@
             FontWeight="Bold" 
             Margin="121,79,120,532"/>
 
-        <Image Source="Images/dish.jpg" 
+        <Image Name="picImageGame" 
                    Stretch="Uniform" 
                    Margin="12,136,12,286"/>
 
@@ -34,7 +34,7 @@
             FontSize="13"
             Margin="43,407,43,208"/>
 
-        <TextBox x:Name="playerAnswer" 
+        <TextBox x:Name="txtPlayerAnswer" 
                      PlaceholderText="Réponse..."
                      Margin="45,443,41,157"
                      Height="40"
@@ -48,7 +48,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="106,542,0,47" 
-                Height="51" Width="152" 
+                Height="51" Width="152" Tapped="validateAnswer_Tapped" 
                 />
     </Grid>
 </Page>
