@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Claptrap.png"
+            <ImageBrush ImageSource="Assets/Claptrap.png"
                     Stretch="UniformToFill" />
         </Grid.Background>
 
@@ -22,7 +22,7 @@
             Background="Transparent"
             Height="111" Width="266"
             >
-            <Image Source="Images/s'Quizz.png" 
+            <Image Source="Assets/s'Quizz.png" 
                    Opacity="1" 
                    Stretch="UniformToFill"
                    Margin="0,-1,0,0" Height="111" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="266"/>
@@ -48,7 +48,7 @@
             Background="Transparent"
             Width="38" Height="38"
             >
-            <Image Source="Images/help.png" 
+            <Image Source="Assets/help.png" 
                    Stretch="Uniform" HorizontalAlignment="Right" Width="38" Height="38" VerticalAlignment="Bottom"/>
         </Button>
 

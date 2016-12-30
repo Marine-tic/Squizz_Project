@@ -8,7 +8,7 @@
 
     <Grid RenderTransformOrigin="0.489,0.505">
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Cloptrop.png"
+            <ImageBrush ImageSource="Assets/Cloptrop.png"
                         Stretch="UniformToFill" />
         </Grid.Background>
 

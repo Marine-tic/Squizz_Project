@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Cloptrop.png"
+            <ImageBrush ImageSource="Assets/Cloptrop.png"
                     Stretch="UniformToFill" />
         </Grid.Background>
 
@@ -21,7 +21,7 @@
             FontWeight="Bold" 
             Margin="121,79,120,532"/>
 
-        <Image x:Name="ImageGame" Source="Images/dish.jpg"
+        <Image x:Name="ImageGame" Source="Assets/dish.jpg"
                    Stretch="Uniform" 
                    Margin="12,136,12,286"/>
 

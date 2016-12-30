@@ -10,7 +10,7 @@
     <Grid Margin="0,6,0,-6">
 
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Cloptrop.png"
+            <ImageBrush ImageSource="Assets/Cloptrop.png"
                     Stretch="UniformToFill" />
         </Grid.Background>
 

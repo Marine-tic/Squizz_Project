@@ -9,7 +9,7 @@
 
     <RelativePanel x:Name="grid" MinHeight="640" MinWidth="360" >
         <RelativePanel.Background>
-            <ImageBrush ImageSource="Images/Cloptrop.png"
+            <ImageBrush ImageSource="Assets/Cloptrop.png"
                     Stretch="UniformToFill" />
         </RelativePanel.Background>
         <!--Margin="40,149,46,459"-->

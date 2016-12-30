@@ -13,7 +13,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Cloptrop.png"
+            <ImageBrush ImageSource="Assets/Cloptrop.png"
                     Stretch="UniformToFill" />
         </Grid.Background>
 

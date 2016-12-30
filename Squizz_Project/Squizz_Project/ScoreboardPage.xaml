@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Cloptrop.png"
+            <ImageBrush ImageSource="Assets/Cloptrop.png"
                     Stretch="UniformToFill" />
         </Grid.Background>
         <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="81,89,0,0" TextWrapping="Wrap" Text="Tableau des scores" VerticalAlignment="Top" FontSize="25"/>

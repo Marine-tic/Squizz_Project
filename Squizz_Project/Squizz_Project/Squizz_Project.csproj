@@ -148,13 +148,13 @@
     <Content Include="Assets\GamePicture\hitman.jpg" />
     <Content Include="Assets\GamePicture\skyrim.jpg" />
     <Content Include="Assets\GamePicture\tombraider.jpg" />
-    <Content Include="Images\Claptrap.png" />
-    <Content Include="Images\Cloptrop.png" />
-    <Content Include="Images\dish.jpg" />
-    <Content Include="Images\help.png" />
-    <Content Include="Images\s%27Quizz.png" />
+    <Content Include="Assets\Claptrap.png" />
+    <Content Include="Assets\Cloptrop.png" />
+    <Content Include="Assets\dish.jpg" />
+    <Content Include="Assets\help.png" />
+    <Content Include="Assets\s%27Quizz.png" />
     <Content Include="Assets\GamePicture\scott.jpg" />
-    <Content Include="Images\sky.jpg" />
+    <Content Include="Assets\sky.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -216,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
