@@ -36,6 +36,7 @@
         <ListView
             Background="White" 
             Grid.ColumnSpan="2" 
+            MaxHeight="85"
             Margin="43,165,43,374">
             <ListView.Items>
                 <x:String>Joueur1</x:String>
@@ -53,16 +54,18 @@
             Foreground="Black" 
             FontSize="15"
             Margin="43,307,43,305" Grid.ColumnSpan="2"/>
-        <TextBlock 
-            Text="30 secondes"
+        <TextBlock
+            Name="lblSliderTime"
             TextWrapping="Wrap"
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="15"
-            Margin="43,335,43,277" Grid.ColumnSpan="2"/>
+            Grid.ColumnSpan="2"
+            Margin="43,335,43,277"/>
+
         <Slider x:Name="timeSlider"
             Margin="43,361,43,244"
-            TickFrequency="20" Grid.ColumnSpan="2"
+            TickFrequency="20" Grid.ColumnSpan="2" ValueChanged="timeSlider_ValueChanged"
             />
 
         <!-- THEME -->
@@ -88,7 +91,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Height="51" Width="152"
-                Margin="108,539,0,50" Grid.ColumnSpan="2" 
+                Margin="108,539,0,50" Grid.ColumnSpan="2" Tapped="settingsMultiPlayer_return_Tapped" 
                 />
 
     </Grid>

@@ -49,7 +49,7 @@
             Width="38" Height="38"
             >
             <Image Source="Assets/help.png" 
-                   Stretch="Uniform" HorizontalAlignment="Right" Width="38" Height="38" VerticalAlignment="Bottom"/>
+                   Stretch="Uniform" HorizontalAlignment="Right" Width="38" Height="38" VerticalAlignment="Bottom" Tapped="Image_Tapped"/>
         </Button>
 
         <Button x:Name="jouer" 

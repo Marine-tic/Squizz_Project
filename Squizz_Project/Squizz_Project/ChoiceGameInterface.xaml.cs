@@ -109,7 +109,6 @@ namespace Squizz_Project
 
         private async void CheckWin(Proposal proposalSelected, Button buttonProposal)
         {
-            int cpt = 1;
             if (proposalSelected.IsAnswer)
             {
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 22, 169, 49));
@@ -122,7 +121,7 @@ namespace Squizz_Project
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
                 var dialog = new MessageDialog(YOU_LOSE);
                 await dialog.ShowAsync();
-                Frame.Navigate(typeof(MainMenuPage), null);
+                Frame.Navigate(typeof(ScoreboardPage), null);
             }
         }
 

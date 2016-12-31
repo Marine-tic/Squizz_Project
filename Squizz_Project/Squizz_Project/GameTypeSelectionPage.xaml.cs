@@ -62,5 +62,15 @@ namespace Squizz_Project
         {
             Frame.Navigate(typeof(SettingsMultiPlayer), null);
         }
+
+        private void Join_Game_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingsMultiPlayer), null);
+        }
+
+        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainMenuPage), null);
+        }
     }
 }
