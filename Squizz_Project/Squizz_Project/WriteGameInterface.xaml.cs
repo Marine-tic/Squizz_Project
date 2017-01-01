@@ -27,6 +27,11 @@ namespace Squizz_Project
     {
         private Question question;
 
+        //variable pour Timer
+        private DispatcherTimer aTimer;
+        private double basetime;
+
+
         public WriteGameInterface()
         {
             this.InitializeComponent();
@@ -40,7 +45,7 @@ namespace Squizz_Project
         private void initGame()
         {
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
-            question = new Question(1, "Scott Pilgrim The Game", "ms-appx://Squizz_Project/Assets/GamePicture/scott.jpg", 0);
+            question = new Question(1, "scott pilgrim the game", "ms-appx://Squizz_Project/Assets/GamePicture/scott.jpg", 0);
             // Telecharger et loader toutes les images dans le projet (pour pouvoir les charger lors de l'instanciation de l'objet)
             //OK
 
@@ -62,6 +67,29 @@ namespace Squizz_Project
 
         }
 
+        #region Timer
+        async void timer_Tick(object sender, object e)
+        {
+            basetime = basetime - 1;
+            lblTimer.Text = basetime.ToString();
+            if (basetime == 0)
+            {
+                aTimer.Stop();
+                var dialog = new MessageDialog("Perdu");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void setTimer()
+        {
+            basetime = timeSlider.Value;
+            lblTimer.Text = basetime.ToString();
+            aTimer.Start();
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Bouton de validation du joueur
         /// </summary>
@@ -70,7 +98,7 @@ namespace Squizz_Project
         private async void validateAnswer_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int cpt = 1;
-            if (txtPlayerAnswer.Text == question.QuestionName)
+            if (txtPlayerAnswer.Text.ToLower().Trim() == question.QuestionName)
             {
                 var dialog = new MessageDialog("WINNER");
                 await dialog.ShowAsync();

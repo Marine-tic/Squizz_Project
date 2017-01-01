@@ -1,19 +1,10 @@
 ﻿using Squizz_Project.Classes;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
@@ -38,6 +29,11 @@ namespace Squizz_Project
         private const String YOU_LOSE = "YOU LOSE !";
         private Questions listeDeQuestion;
 
+        //variable pour Timer
+        private DispatcherTimer aTimer;
+        private double basetime;
+
+
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
@@ -47,6 +43,15 @@ namespace Squizz_Project
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             initGame();
+
+            //Timer pour la manche
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+            aTimer = new DispatcherTimer();
+            aTimer.Interval = new TimeSpan(0, 0, 1);
+            aTimer.Tick += timer_Tick;
+
+            setTimer();
+
 
             // Ensuite faire une liste de questions avec une liste de proposition associé à chaque question et prendre un nombre aléatoire pour la sélection de la question
             listeDeQuestion = new Questions();
@@ -139,6 +144,28 @@ namespace Squizz_Project
             else
                 Frame.Navigate(typeof(WriteGameInterface), null);
         }
+
+        #region Timer
+        async void timer_Tick(object sender, object e)
+        {
+            basetime = basetime - 1;
+            lblTimer.Text = basetime.ToString();
+            if (basetime == 0)
+            {
+                aTimer.Stop();
+                var dialog = new MessageDialog("Perdu");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void setTimer()
+        {
+            basetime = timeSlider.Value;
+            lblTimer.Text = basetime.ToString();
+            aTimer.Start();
+        }
+
+        #endregion
 
 
         #region BOUTON RETOUR

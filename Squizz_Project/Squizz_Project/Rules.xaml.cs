@@ -53,9 +53,9 @@ namespace Squizz_Project
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Clicks(object sender, TappedRoutedEventArgs e)
         {
-           this.Frame.Navigate(typeof(MainMenuPage), null);
+            this.Frame.Navigate(typeof(MainMenuPage), null);
         }
     }
 }

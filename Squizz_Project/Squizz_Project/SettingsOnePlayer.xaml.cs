@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Diagnostics;
+using System.Threading;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,14 +20,12 @@ namespace Squizz_Project
         public SettingsOnePlayer()
         {
             this.InitializeComponent();
-            this.lblSliderTime.Text = this.timeSlider.Value.ToString();
-            //Frame root = Window.Current.Content as Frame;
-            //root.Navigated += OnNavigated;
         }
+
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GameTypeSelectionPage), null);
+            Frame.Navigate(typeof(GameTypeSelectionPage), this.timeSlider.Value);
         }
 
         #region Afficher/Cacher bouton de retour + Action

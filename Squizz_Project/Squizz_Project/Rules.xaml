@@ -44,7 +44,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Height="51" Width="152"
-                Margin="108,539,0,50" Click="btnBack_Click" 
+                Margin="108,539,0,50" Tapped="btnBack_Clicks" 
                 />
 
     </Grid>

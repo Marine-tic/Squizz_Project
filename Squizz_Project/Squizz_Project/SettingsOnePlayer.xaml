@@ -40,6 +40,7 @@
         <Slider x:Name="timeSlider"
             Margin="43,243,43,362"
             TickFrequency="20"
+            Value="30"
             />
 
         <!-- THEME -->

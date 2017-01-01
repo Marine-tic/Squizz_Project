@@ -14,12 +14,21 @@
         </Grid.Background>
 
         <TextBlock
+            Name="lblTimer"
+            TextAlignment="Left"
+            Foreground="Black"
+            FontSize="20"
+            FontWeight="Bold"
+            Text="timer"
+            Margin="293,79,0,532"/>
+
+        <TextBlock
             Text="Question 1"  
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="20"
             FontWeight="Bold" 
-            Margin="121,79,120,532"/>
+            Margin="109,79,132,532"/>
 
         <Image x:Name="ImageGame" Source="Assets/dish.jpg"
                    Stretch="Uniform" 

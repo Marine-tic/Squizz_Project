@@ -20,6 +20,7 @@ namespace Squizz_Project
         public GameTypeSelectionPage()
         {
             InitializeComponent();
+
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
@@ -50,7 +51,6 @@ namespace Squizz_Project
             // Changement d'interface vers celle du jeu 
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
-            int cpt = 1;
 
             if (typePartie == 0)
                 Frame.Navigate(typeof(ChoiceGameInterface), null);
