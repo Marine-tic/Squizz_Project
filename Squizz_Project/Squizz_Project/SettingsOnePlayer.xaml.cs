@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading;
 using Windows.UI.Core;
-using Windows.UI.Popups;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
@@ -20,12 +16,14 @@ namespace Squizz_Project
         public SettingsOnePlayer()
         {
             this.InitializeComponent();
+            this.lblSliderTime.Text = this.timeSlider.Value.ToString();
+            //Frame root = Window.Current.Content as Frame;
+            //root.Navigated += OnNavigated;
         }
-
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GameTypeSelectionPage), this.timeSlider.Value);
+            Frame.Navigate(typeof(MainMenuPage), null);
         }
 
         #region Afficher/Cacher bouton de retour + Action
@@ -37,5 +35,12 @@ namespace Squizz_Project
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
         #endregion
+
+        private void timeSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+
+            Slider timeSlider = sender as Slider;
+            lblSliderTime.Text = timeSlider.Value.ToString();
+        }
     }
 }

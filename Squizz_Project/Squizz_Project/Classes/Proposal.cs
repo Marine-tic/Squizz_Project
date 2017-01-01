@@ -81,12 +81,11 @@ namespace Squizz_Project
         }
         #endregion
 
-        public Proposal(int id, string proposalName, bool isAnswer, string theme, int idQuestion)
+        public Proposal(int id, string proposalName, bool isAnswer, int idQuestion)
         {
             this.id = id;
             this.proposalName = proposalName;
             this.isAnswer = isAnswer;
-            this.theme = theme;
             this.idQuestion = idQuestion;
         }
     }

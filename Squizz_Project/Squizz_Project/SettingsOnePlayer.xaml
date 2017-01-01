@@ -23,7 +23,7 @@
 
         <!-- SLIDER -->
         <TextBlock 
-            Text="Temps de manche :"
+            Text="Délai de réponse du joueur :"
             TextWrapping="Wrap"
             FontWeight="Bold"
             TextAlignment="Center"
@@ -39,26 +39,9 @@
             Margin="43,217,43,395"/>
         <Slider x:Name="timeSlider"
             Margin="43,243,43,362"
-            TickFrequency="20"
-            Value="30"
+            TickFrequency="20" ValueChanged="timeSlider_ValueChanged"
             />
 
-        <!-- THEME -->
-        <TextBlock 
-            Text="Thème"
-            TextWrapping="Wrap"
-            FontWeight="Bold"
-            TextAlignment="Center"
-            Foreground="Black" 
-            FontSize="15"
-            Margin="43,353,43,259"/>
-        <ComboBox x:Name="theme_comboBox"
-            AllowDrop="True"
-            Margin="57,386,0,0"
-            Width="248"
-            Background="#FF505050"
-            Foreground="White">
-        </ComboBox>
 
         <Button x:Name="btnBack" 
                 Content="Retour" 

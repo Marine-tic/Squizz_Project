@@ -72,10 +72,10 @@ namespace Squizz_Project
         {
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
             question = new Question(0, "Dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0);
-            proposal0 = new Proposal(0, "Dishonored", true, "", 0);
-            proposal1 = new Proposal(1, "GTA", false, "", 0);
-            proposal2 = new Proposal(2, "Hitman", false, "", 0);
-            proposal3 = new Proposal(3, "Skyrim", false, "", 0);
+            proposal0 = new Proposal(0, "Dishonored", true, 0);
+            proposal1 = new Proposal(1, "GTA", false, 0);
+            proposal2 = new Proposal(2, "Hitman", false, 0);
+            proposal3 = new Proposal(3, "Skyrim", false, 0);
             // Telecharger et loader toutes les images dans le projet (pour pouvoir les charger lors de l'instanciation de l'objet)
             //OK
 
@@ -114,7 +114,6 @@ namespace Squizz_Project
 
         private async void CheckWin(Proposal proposalSelected, Button buttonProposal)
         {
-            int cpt = 1;
             if (proposalSelected.IsAnswer)
             {
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 22, 169, 49));
@@ -127,7 +126,7 @@ namespace Squizz_Project
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
                 var dialog = new MessageDialog(YOU_LOSE);
                 await dialog.ShowAsync();
-                Frame.Navigate(typeof(MainMenuPage), null);
+                Frame.Navigate(typeof(ScoreboardPage), null);
             }
         }
 

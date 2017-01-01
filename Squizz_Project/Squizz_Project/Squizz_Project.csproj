@@ -106,9 +106,6 @@
     <Compile Include="ForgotPassword.xaml.cs">
       <DependentUpon>ForgotPassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameTypeSelectionPage.xaml.cs">
-      <DependentUpon>GameTypeSelectionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
@@ -122,14 +119,11 @@
     <Compile Include="ScoreboardPage.xaml.cs">
       <DependentUpon>ScoreboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SettingsMultiPlayer.xaml.cs">
-      <DependentUpon>SettingsMultiPlayer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SettingsOnePlayer.xaml.cs">
       <DependentUpon>SettingsOnePlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignInPage.xaml.cs">
-      <DependentUpon>SignInPage.xaml</DependentUpon>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WriteGameInterface.xaml.cs">
       <DependentUpon>WriteGameInterface.xaml</DependentUpon>
@@ -177,10 +171,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameTypeSelectionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,15 +187,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsMultiPlayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SettingsOnePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignInPage.xaml">
+    <Page Include="SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

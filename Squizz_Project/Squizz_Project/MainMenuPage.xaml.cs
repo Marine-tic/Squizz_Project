@@ -52,5 +52,10 @@ namespace Squizz_Project
         {
             Frame.Navigate(typeof(SettingsOnePlayer), null);
         }
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Rules), null);
+        }
     }
 }

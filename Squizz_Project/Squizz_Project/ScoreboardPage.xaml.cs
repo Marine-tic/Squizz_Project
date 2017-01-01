@@ -26,5 +26,10 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
         }
+
+        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainMenuPage), null);
+        }
     }
 }
