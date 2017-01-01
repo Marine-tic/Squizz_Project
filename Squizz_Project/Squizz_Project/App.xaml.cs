@@ -73,6 +73,7 @@ namespace Squizz_Project
                     // puis configurez la nouvelle page en transmettant les informations requises en tant que
                     // paramètre
                     rootFrame.Navigate(typeof(MainMenuPage), e.Arguments);
+                    //TODO: chargez la page d'accueil pour celle de connexion
                 }
                 // Vérifiez que la fenêtre actuelle est active
                 Window.Current.Activate();

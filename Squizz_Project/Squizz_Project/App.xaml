@@ -5,4 +5,27 @@
     xmlns:local="using:Squizz_Project"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BasicTextStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource ApplicationForegroundThemeBrush}" />
+                <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="TextTrimming" Value="WordEllipsis" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Typography.StylisticSet20" Value="True" />
+                <Setter Property="Typography.DiscretionaryLigatures" Value="True" />
+            </Style>
+            <Style x:Key="BasicTitleStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource ApplicationForegroundThemeBrush}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="TextTrimming" Value="WordEllipsis" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Typography.StylisticSet20" Value="True" />
+                <Setter Property="Typography.DiscretionaryLigatures" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

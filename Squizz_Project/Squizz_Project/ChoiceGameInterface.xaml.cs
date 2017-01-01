@@ -67,10 +67,10 @@ namespace Squizz_Project
         {
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
             question = new Question(0, "Dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0);
-            proposal0 = new Proposal(0, "Dishonored", true, "", 0);
-            proposal1 = new Proposal(1, "GTA", false, "", 0);
-            proposal2 = new Proposal(2, "Hitman", false, "", 0);
-            proposal3 = new Proposal(3, "Skyrim", false, "", 0);
+            proposal0 = new Proposal(0, "Dishonored", true, 0);
+            proposal1 = new Proposal(1, "GTA", false, 0);
+            proposal2 = new Proposal(2, "Hitman", false, 0);
+            proposal3 = new Proposal(3, "Skyrim", false, 0);
             // Telecharger et loader toutes les images dans le projet (pour pouvoir les charger lors de l'instanciation de l'objet)
             //OK
 

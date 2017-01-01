@@ -18,14 +18,14 @@
             HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch" 
             Padding="0" BorderThickness="0"
-            Opacity="1" Margin="48,54,36,466"
+            Opacity="1" Margin="49,59,45,470"
             Background="Transparent"
             Height="111" Width="266"
             >
             <Image Source="Assets/s'Quizz.png" 
                    Opacity="1" 
                    Stretch="UniformToFill"
-                   Margin="0,-1,0,0" Height="111" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="266"/>
+                   Margin="-16,-0.667,0,-0.333" Height="111" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="266"/>
         </Button>
 
         <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
