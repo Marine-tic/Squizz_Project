@@ -22,6 +22,7 @@ namespace Squizz_Project
         DataManagementClient client = new DataManagementClient();
         // Déclarer une question et 4 propositions
         Question question;
+        Question question2;
         private Proposal proposal0;
         private Proposal proposal1;
         private Proposal proposal2;
@@ -34,16 +35,26 @@ namespace Squizz_Project
         private DispatcherTimer aTimer;
         private double basetime;
 
+        //numéro de la question
+        private int currentNumberQuestion;
+        private int temp;
+
 
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
+            temp = (int)Application.Current.Resources["timer"];
+            if (temp == -1)
+                Application.Current.Resources["timer"] = 30.0;
+
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
 
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             initGame();
+
 
             //Timer pour la manche
             this.NavigationCacheMode = NavigationCacheMode.Required;
@@ -73,23 +84,46 @@ namespace Squizz_Project
         private void initGame()
         {
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
-            question = new Question(0, "Dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0);
-            proposal0 = new Proposal(0, "Dishonored", true, 0);
-            proposal1 = new Proposal(1, "GTA", false, 0);
-            proposal2 = new Proposal(2, "Hitman", false, 0);
-            proposal3 = new Proposal(3, "Skyrim", false, 0);
+            Random rand = new Random();
+            int typeQuestion = rand.Next(0, 2);
+
+            if (typeQuestion == 0)
+                Question1();
+            else
+                Question2();
+
             // Telecharger et loader toutes les images dans le projet (pour pouvoir les charger lors de l'instanciation de l'objet)
             //OK
 
             // Changer l'image courante par celle de la question
-            BitmapImage myBitmapImage = new BitmapImage(new Uri(question.UrlImage));
-            ImageGame.Source = myBitmapImage;
 
             // Changer le texte des propositions par celles des 4 objets instanciés
             answerTopLeft.Content = proposal0.ProposalName;
             answerTopRight.Content = proposal1.ProposalName;
             answerBottomLeft.Content = proposal2.ProposalName;
             answerBottomRight.Content = proposal3.ProposalName;
+        }
+
+        private void Question1()
+        {
+            question = new Question(0, "Dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0);
+            proposal0 = new Proposal(0, "Dishonored", true, 0);
+            proposal1 = new Proposal(1, "GTA", false, 0);
+            proposal2 = new Proposal(2, "Hitman", false, 0);
+            proposal3 = new Proposal(3, "Skyrim", false, 0);
+            BitmapImage myBitmapImage = new BitmapImage(new Uri(question.UrlImage));
+            ImageGame.Source = myBitmapImage;
+        }
+
+        private void Question2()
+        {
+            question2 = new Question(1, "GTA", "ms-appx://Squizz_Project/Assets/GamePicture/gta5.jpg", 0);
+            proposal0 = new Proposal(0, "Dishonored", false, 0);
+            proposal1 = new Proposal(1, "GTA", true, 0);
+            proposal2 = new Proposal(2, "Hitman", false, 0);
+            proposal3 = new Proposal(3, "Skyrim", false, 0);
+            BitmapImage myBitmapImage = new BitmapImage(new Uri(question2.UrlImage));
+            ImageGame.Source = myBitmapImage;
         }
 
         // Ajouter un tapListener sur chaque proposition et vérifier si la proposition cliquée est la réponse dans ce cas afficher YOU WIN et mettre la case cochée en vert
@@ -140,10 +174,22 @@ namespace Squizz_Project
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
 
+            currentNumberQuestion++;
+
             if (typePartie == 0)
-                Frame.Navigate(typeof(ChoiceGameInterface), null);
+            {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                checkBasetime();
+                Frame.Navigate(typeof(ChoiceGameInterface));
+                aTimer.Stop();
+            }
             else
-                Frame.Navigate(typeof(WriteGameInterface), null);
+            {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                checkBasetime();
+                Frame.Navigate(typeof(WriteGameInterface));
+                aTimer.Stop();
+            }
         }
 
         #region Timer
@@ -156,14 +202,24 @@ namespace Squizz_Project
                 aTimer.Stop();
                 var dialog = new MessageDialog("Perdu");
                 await dialog.ShowAsync();
+                Frame.Navigate(typeof(ScoreboardPage), null); //on renvoie sur la page des scores si temps fini
             }
         }
 
         private void setTimer()
         {
-            /*basetime = timeSlider.Value;
+            basetime = (double)Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
-            aTimer.Start();*/
+            aTimer.Start();
+        }
+
+        private void checkBasetime()
+        {
+            if (basetime < 30.0)
+            {
+                Application.Current.Resources["timer"] = 30.0;
+                basetime = (double)Application.Current.Resources["timer"];
+            }
         }
 
         #endregion

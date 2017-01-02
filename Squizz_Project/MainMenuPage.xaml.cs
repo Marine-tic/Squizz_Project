@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -21,9 +22,16 @@ namespace Squizz_Project
     /// </summary>
     public sealed partial class MainMenuPage : Page
     {
+        private int currentNumberQuestion;
+
         public MainMenuPage()
         {
             this.InitializeComponent();
+            Application.Current.Resources["timer"] = -1;
+
+            ApplicationView.PreferredLaunchViewSize = new Size(360, 640);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(360, 640));
         }
 
         /// <summary>
@@ -33,8 +41,33 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private void Play_Click(object sender, TappedRoutedEventArgs e)
         {
-            // Redirection vers la page du choix de type de jeu
-            Frame.Navigate(typeof(ChoiceGameInterface), null);
+            System.Diagnostics.Debug.WriteLine(this.ActualWidth);
+            System.Diagnostics.Debug.WriteLine(this.ActualHeight);
+
+            currentNumberQuestion = 1;
+            Application.Current.Resources["compteur"] = currentNumberQuestion;
+            Randomizer();
+        }
+
+
+        /// <summary>
+        /// Permet de switcher de type de question
+        /// </summary>
+        private void Randomizer()
+        {
+            Random rand = new Random();
+            int typePartie = rand.Next(0, 2);
+
+            if (typePartie == 0)
+            {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                Frame.Navigate(typeof(ChoiceGameInterface));
+            }
+            else
+            {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                Frame.Navigate(typeof(WriteGameInterface));
+            }
         }
 
         /// <summary>
@@ -56,6 +89,16 @@ namespace Squizz_Project
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(Rules), null);
+        }
+
+        private void about_click(object sender, TappedRoutedEventArgs e)
+        {
+            PopupTextBlock.Text =
+                "Application :" + Environment.NewLine +
+                "Version 0.9" + Environment.NewLine +
+                "Informations légales Copyright(c) 2017 : " + Environment.NewLine +
+                "Marine Landraudie,\n Glenn Le Menn,\n Valentin Léon,\n Guillaume Lombart";
+            popup.IsOpen = !popup.IsOpen;
         }
     }
 }

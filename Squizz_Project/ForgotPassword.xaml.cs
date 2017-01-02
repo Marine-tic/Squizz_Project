@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Squizz_Project.SquizzWebService;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,6 +13,8 @@ namespace Squizz_Project
     /// </summary>
     public sealed partial class ForgotPassword : Page
     {
+        DataManagementClient client = new DataManagementClient();
+
         public ForgotPassword()
         {
             this.InitializeComponent();
@@ -32,10 +25,12 @@ namespace Squizz_Project
 
         }
 
-        private void SendAndReturn(object sender, TappedRoutedEventArgs e)
+        private async void SendAndReturn(object sender, TappedRoutedEventArgs e)
         {
             // Mettre en place l'envoi d'email 
-
+            String msg = "";
+            msg = await client.ForgotPasswordAsync("teamsquizz@outlook.fr", 2);
+            
             // Retour vers la vu de connexion 
             this.Frame.Navigate(typeof(ConnexionPage), null);
         }

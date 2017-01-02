@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
@@ -41,6 +42,7 @@ namespace Squizz_Project
 
             Slider timeSlider = sender as Slider;
             lblSliderTime.Text = timeSlider.Value.ToString();
+            Application.Current.Resources["timer"] = timeSlider.Value;
         }
     }
 }

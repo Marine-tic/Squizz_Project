@@ -20,18 +20,20 @@ namespace Squizz_Project
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class SignInPage : Page
+    public sealed partial class SignUpPage : Page
     {
         DataManagementClient client = new DataManagementClient();
-        public SignInPage()
+        public SignUpPage()
         {
             this.InitializeComponent();
         }
 
-        private async void btnCreation_Click(object sender, RoutedEventArgs e)
+ 
+
+        private async void btnCreation_Tapped(object sender, TappedRoutedEventArgs e)
         {
             string msg = "";
-            if(txtMail.Text != "" & txtPassword.Password != "" && txtUsername.Text != "")
+            if (txtMail.Text != "" & txtPassword.Password != "" && txtUsername.Text != "")
             {
                 SquizzWebService.Player newPlayer = new SquizzWebService.Player();
                 newPlayer.Mail = txtMail.Text;
@@ -39,7 +41,9 @@ namespace Squizz_Project
                 newPlayer.Mail = txtPassword.Password;
 
                 msg = await client.SignupPlayerAsync(newPlayer);
-            }else{
+            }
+            else
+            {
                 msg = "1 or multiple fields are missing";
             }
 

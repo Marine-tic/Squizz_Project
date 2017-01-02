@@ -8,6 +8,28 @@
     mc:Ignorable="d">
 
     <Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="VisualStateMinSize">
+                    <VisualState.Setters>
+                        <Setter Target="buttons.(Grid.Below)" Value="ImageGame"></Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="VisualStateMaxSize">
+                    <VisualState.Setters>
+                        <Setter Target="buttons.(Grid.RightOf)" Value="ImageGame"></Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="548"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Cloptrop.png"
                     Stretch="UniformToFill" />
@@ -19,11 +41,11 @@
             Foreground="Black"
             FontSize="20"
             FontWeight="Bold"
-            Text="timer"
             Margin="293,79,0,532"/>
 
         <TextBlock
-            Text="Question 1"  
+            Name="lblTitle"
+            Text="{Binding Path=compteur}"
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="20"
@@ -34,45 +56,54 @@
                    Stretch="Uniform" 
                    Margin="12,136,12,286"/>
 
-        <!-- LEFT BUTTONS -->
-        <Button x:Name="answerTopLeft" 
+        <RelativePanel x:Name="buttons">
+            <!-- LEFT BUTTONS -->
+            <Button x:Name="answerTopLeft" 
                 Content="GTA" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="22,423,0,166" 
+                Margin="22,423,186,166" 
+                HorizontalAlignment="Stretch"
                 Height="51" Width="152" Tapped="answerTopLeft_Tapped"
                 />
-        <Button x:Name="answerBottomLeft" 
+            <Button x:Name="answerBottomLeft" 
                 Content="Tomb Raider" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="22,498,0,91" 
+                HorizontalAlignment="Stretch"
+                Margin="22,498,186,91" 
                 Height="51" Width="152" Tapped="answerBottomLeft_Tapped" 
                 />
 
-        <!-- RIGHT BUTTONS -->
-        <Button x:Name="answerTopRight" 
+
+            <!-- RIGHT BUTTONS -->
+            <Button x:Name="answerTopRight" 
                 Content="Dishonored" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="186,423,0,166" 
+                HorizontalAlignment="Stretch"
+                Margin="186,423,22,166" 
                 Height="51" Width="152" Tapped="answerTopRight_Tapped" 
                 />
-        <Button x:Name="answerBottomRight" 
+            <Button x:Name="answerBottomRight" 
                 Content="Bioshock" 
                 Foreground="Black"
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="186,498,0,91" 
+                HorizontalAlignment="Stretch"
+                Margin="186,498,22,91" 
                 Height="51" Width="152" Tapped="answerBottomRight_Tapped"
                 />
+
+        </RelativePanel>
+
 
     </Grid>
 </Page>

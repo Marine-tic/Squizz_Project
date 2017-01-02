@@ -26,6 +26,62 @@
                 <Setter Property="Typography.StylisticSet20" Value="True" />
                 <Setter Property="Typography.DiscretionaryLigatures" Value="True" />
             </Style>
+
+
+            <Style x:Key="BasicButton" TargetType="Button">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Offset="0" Color="#FF2B2B2B"/>
+                            <GradientStop Offset="1" Color="#393838"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Disabled"/>
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="#393838" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Inner" Storyboard.TargetProperty="(ScaleTransform.ScaleY)">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="1"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Outer" Storyboard.TargetProperty="(ScaleTransform.ScaleY)">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="-1"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused"/>
+                                        <VisualState x:Name="Unfocused"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Rectangle Margin="0" Fill="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <ScaleTransform ScaleY="1" x:Name="Outer"/>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                                <Rectangle Margin="0" Fill="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <ScaleTransform ScaleY="-1" x:Name="Inner"/>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                                <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

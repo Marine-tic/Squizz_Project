@@ -21,16 +21,31 @@ namespace Squizz_Project
         //variable pour Timer
         private DispatcherTimer aTimer;
         private double basetime;
+        private double currentTimer;
+
+        private int currentNumberQuestion;
 
 
         public WriteGameInterface()
         {
             this.InitializeComponent();
+            if ((int)Application.Current.Resources["timer"] == -1)
+                Application.Current.Resources["timer"] = 30.0;
+
+
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             initGame();
+
+            //Timer pour la manche
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+            aTimer = new DispatcherTimer();
+            aTimer.Interval = new TimeSpan(0, 0, 1);
+            aTimer.Tick += timer_Tick;
+
+            setTimer();
         }
 
         private void initGame()
@@ -49,33 +64,64 @@ namespace Squizz_Project
         private void Randomizer()
         {
             Random rand = new Random();
-            int typePartie = rand.Next(0, 1);
+            int typePartie = rand.Next(0, 2);
+
+            currentNumberQuestion++;
 
             if (typePartie == 0)
-                Frame.Navigate(typeof(ChoiceGameInterface), null);
+            {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                checkBasetime();
+                Frame.Navigate(typeof(ChoiceGameInterface));
+                aTimer.Stop();
+            }
             else
-                Frame.Navigate(typeof(WriteGameInterface), null);
+            {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                checkBasetime();
+                Frame.Navigate(typeof(WriteGameInterface));
+                aTimer.Stop();
+            }
 
         }
 
+        private void checkBasetime()
+        {
+            if (basetime < 30.0)
+            {
+                Application.Current.Resources["timer"] = 30.0;
+                basetime = (double)Application.Current.Resources["timer"];
+                //aTimer.Stop();
+            }
+        }
+
         #region Timer
+        /// <summary>
+        /// fonction asynchrone qui actionne le timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void timer_Tick(object sender, object e)
         {
             basetime = basetime - 1;
-            //lblTimer.Text = basetime.ToString();
+            lblTimer.Text = basetime.ToString();
             if (basetime == 0)
             {
                 aTimer.Stop();
                 var dialog = new MessageDialog("Perdu");
                 await dialog.ShowAsync();
+                Frame.Navigate(typeof(ScoreboardPage));
             }
         }
 
+        /// <summary>
+        /// on règle le timer
+        /// </summary>
         private void setTimer()
         {
-            /*basetime = timeSlider.Value;
+            basetime = (double)Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
-            aTimer.Start();*/
+            aTimer.Start();
         }
 
         #endregion
