@@ -26,7 +26,7 @@
                  Margin="42,149,18,0"
                  Height="40"
                  Width="274"
-                 HorizontalAlignment="Center"
+                 HorizontalAlignment="Stretch"
                  BorderBrush="#FF2B2B2B"/>
 
         <!--Margin="40,197,46,411"-->
@@ -39,12 +39,12 @@
                      Width="274"
                      BorderBrush="#FF2B2B2B" 
                      RelativePanel.Below="txtUsernameConnexion"
-                     RelativePanel.AlignLeftWith="txtUsernameConnexion" HorizontalAlignment="Center"
+                     RelativePanel.AlignLeftWith="txtUsernameConnexion" HorizontalAlignment="Stretch"
                      />
 
         <Button x:Name="btnForgotPwd"
             Content="Mot de passe oublié ?" 
-            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Stretch"
             Foreground="#FF2B2B2B" 
             Background="Transparent"
             FontSize="13"
@@ -54,8 +54,9 @@
                 Content="Connexion" 
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
+                Style="{StaticResource BasicButton}" 
                 Margin="74,317,0,272" 
+                HorizontalAlignment="Stretch"
                 Height="51" Width="210" Click="btnConnexion_Click" Tapped="Connexion_Click" 
                 />
 
@@ -64,14 +65,16 @@
               Data="M 0,0 C 0,0 0,0 0,0 H 100"
               Margin="40,423.913,46,180.418" 
               UseLayoutRounding="False" 
+              HorizontalAlignment="Stretch"
               Stretch="Fill" />
 
         <Button x:Name="btnNewAccount" 
                 Content="Nouveau compte" 
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
+                Style="{StaticResource BasicButton}"
                 Margin="72,520,0,69" 
+                HorizontalAlignment="Stretch"
                 Height="51" Width="216" Tapped="NewAccount_Click" />
     </RelativePanel>
 </Page>

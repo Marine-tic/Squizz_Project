@@ -41,7 +41,8 @@
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="22,423,0,166" 
+                Margin="22,423,186,166" 
+                HorizontalAlignment="Stretch"
                 Height="51" Width="152" Tapped="answerTopLeft_Tapped"
                 />
         <Button x:Name="answerBottomLeft" 
@@ -50,7 +51,8 @@
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="22,498,0,91" 
+                HorizontalAlignment="Stretch"
+                Margin="22,498,186,91" 
                 Height="51" Width="152" Tapped="answerBottomLeft_Tapped" 
                 />
 
@@ -61,7 +63,8 @@
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="186,423,0,166" 
+                HorizontalAlignment="Stretch"
+                Margin="186,423,22,166" 
                 Height="51" Width="152" Tapped="answerTopRight_Tapped" 
                 />
         <Button x:Name="answerBottomRight" 
@@ -70,7 +73,8 @@
                 FontSize="20"
                 Background="Transparent"
                 BorderBrush="#FF2B2B2B"
-                Margin="186,498,0,91" 
+                HorizontalAlignment="Stretch"
+                Margin="186,498,22,91" 
                 Height="51" Width="152" Tapped="answerBottomRight_Tapped"
                 />
 

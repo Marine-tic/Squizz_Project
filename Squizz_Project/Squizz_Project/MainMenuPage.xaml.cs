@@ -1,4 +1,6 @@
 ﻿using System;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -70,15 +72,11 @@ namespace Squizz_Project
         private void about_click(object sender, TappedRoutedEventArgs e)
         {
             PopupTextBlock.Text =
-                "Application" + Environment.NewLine +
+                "Application :" + Environment.NewLine +
                 "Version 0.9" + Environment.NewLine +
-                "Informations légales Copyright(c) 2017, " + Environment.NewLine +
-                "Marine Landraudie,\nGlenn Le Menn,\nValentin Léon,\nGuillaume Lombart";
-            if (popup.IsOpen)
-            {
-                popup.IsOpen = false;
-            }
-            else { popup.IsOpen = true; }
+                "Informations légales Copyright(c) 2017 : " + Environment.NewLine +
+                "Marine Landraudie,\n Glenn Le Menn,\n Valentin Léon,\n Guillaume Lombart";
+            popup.IsOpen = !popup.IsOpen;
         }
     }
 }

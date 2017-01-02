@@ -10,39 +10,42 @@
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Cloptrop.png"
-                    Stretch="UniformToFill" />
+                        Stretch="UniformToFill"
+                        />
         </Grid.Background>
-        
-        <TextBlock x:Name="lblTitle" 
-            Text="Tableau des scores"  
-            TextAlignment="Center"
-            Foreground="Black" 
-            FontSize="20"
-            FontWeight="Bold" 
-            Margin="67,79,68,532"/>
-        
-        <Button x:Name="btnBack" 
-                Content="Retour" 
+
+        <TextBlock x:Name="lblTitle"
+                   Text="Tableau des scores"
+                   TextAlignment="Center"
+                   Foreground="Black"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Margin="67,79,68,532"
+                   HorizontalAlignment="Stretch" />
+
+        <Button x:Name="btnBack"
+                Content="Retour"
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
+                Style="{StaticResource BasicButton}"
                 Height="51" Width="152"
-                Margin="104,539,0,50" Tapped="btnBack_Tapped" 
-                />
+                HorizontalAlignment="Stretch"
+                Margin="106,539,102,50" Tapped="btnBack_Tapped" />
         <!-- Grille des scores -->
-        <ListView x:Name="lvDataTemplates" 
+        <ListView x:Name="lvDataTemplates"
                   Margin="33,139,33,146"
-                  BorderBrush="Black">
+                  BorderBrush="Black"
+                  HorizontalAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Style="{StaticResource BasicTitleStyle}">
-                                    <Run Text="Joueur: "/>
-                                    <Run Text="{Binding Title}" />
+                            <Run Text="Joueur: " />
+                            <Run Text="{Binding Title}" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource BasicTextStyle}">
-                                    <Run Text="Score: "/>
-                                    <Run Text="{Binding Text}"/>
+                            <Run Text="Score: " />
+                            <Run Text="{Binding Text}" />
                         </TextBlock>
                     </StackPanel>
                 </DataTemplate>

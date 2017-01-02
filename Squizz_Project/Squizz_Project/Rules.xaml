@@ -28,7 +28,8 @@
             FontWeight="Bold"
             Foreground="Black" 
             FontSize="15"
-            Margin="41,139,45,256"/>
+            Margin="41,139,45,256"
+            HorizontalAlignment="Stretch"/>
         
         <TextBlock 
             Text="Quis quam suscipit unde mollitia voluptas inventore perspiciatis. Vel quia rerum nulla fugit omnis. Quidem explicabo odit harum. Aut ut incidunt ut nostrum. Et est et aspernatur corrupti enim rem voluptates"
@@ -36,15 +37,17 @@
             FontWeight="Bold"
             Foreground="Black" 
             FontSize="15"
-            Margin="41,388,45,116"/>
+            Margin="41,388,45,116"
+            HorizontalAlignment="Stretch"/>
         
         <Button x:Name="btnBack" 
                 Content="Retour" 
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
+                Style="{StaticResource BasicButton}"
                 Height="51" Width="152"
-                Margin="108,539,0,50" Tapped="btnBack_Clicks" 
+                Margin="105,539,103,50" 
+                HorizontalAlignment="Stretch" Tapped="btnBack_Clicks" 
                 />
 
     </Grid>

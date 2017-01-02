@@ -8,6 +8,7 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Media="using:Microsoft.Xaml.Interactions.Media"
+    xmlns:interop="using:Windows.UI.Xaml.Interop"
     mc:Ignorable="d">
 
     <Grid>
@@ -24,6 +25,9 @@
                 <PopOutThemeAnimation Storyboard.TargetName="popup" />
             </Storyboard>
         </Grid.Resources>
+        
+            
+   
 
         <Button 
             Grid.Column="0" 
@@ -84,20 +88,30 @@
                    Stretch="Uniform" HorizontalAlignment="Right" Width="38" Height="38" VerticalAlignment="Bottom" Tapped="Image_Tapped"/>
         </Button>
 
+        <!--
         <Button x:Name="jouer" 
                 Content="Jouer !" 
                 Foreground="White"
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="104,192,104,397" 
-                Height="51" Tapped="Play_Click" HorizontalAlignment="Stretch"
+                Height="51" Tapped="Play_Click" HorizontalAlignment="Stretch" 
+                Style="{StaticResource BasicButton}">
+        </Button>-->
+        <Button x:Name="jouer" 
+                Content="Jouer !" 
+                FontSize="20"
+                Style="{StaticResource BasicButton}"
+                Foreground="White"
+                Margin="104,192,104,397" 
+                Height="51" Tapped="Play_Click" HorizontalAlignment="Stretch" 
                 />
 
         <Button x:Name="btnSettings" 
                 Content="Réglages" 
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B"  
+                Style="{StaticResource BasicButton}"
                 Height="51"
                 Margin="104,464,104,125" HorizontalAlignment="Stretch" Tapped="btnSettings_Tapped"
                 />
@@ -106,7 +120,7 @@
                 Content="Scores" 
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
+                Style="{StaticResource BasicButton}"
                 Height="51"
                 Margin="104,539,104,50" HorizontalAlignment="Stretch" Tapped="scores_Tapped" 
                 />
