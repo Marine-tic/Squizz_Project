@@ -1,4 +1,6 @@
 ﻿using System;
+using Windows.Foundation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -11,9 +13,14 @@ namespace Squizz_Project
     /// </summary>
     public sealed partial class MainMenuPage : Page
     {
+        private int currentNumberQuestion;
+
         public MainMenuPage()
         {
             this.InitializeComponent();
+            ApplicationView.PreferredLaunchViewSize = new Size(360, 640);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(360, 640));
         }
 
         /// <summary>
@@ -23,8 +30,11 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private void Play_Click(object sender, TappedRoutedEventArgs e)
         {
-            int compteurQuestion = 1;
-            Application.Current.Resources["compteur"] = compteurQuestion;
+            System.Diagnostics.Debug.WriteLine(this.ActualWidth);
+            System.Diagnostics.Debug.WriteLine(this.ActualHeight);
+
+            currentNumberQuestion = 1;
+            Application.Current.Resources["compteur"] = currentNumberQuestion;
             Randomizer();
         }
 
@@ -38,10 +48,12 @@ namespace Squizz_Project
 
             if (typePartie == 0)
             {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
                 Frame.Navigate(typeof(ChoiceGameInterface));
             }
             else
             {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
                 Frame.Navigate(typeof(WriteGameInterface));
             }
         }

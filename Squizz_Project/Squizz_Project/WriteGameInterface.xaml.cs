@@ -22,15 +22,11 @@ namespace Squizz_Project
         private DispatcherTimer aTimer;
         private double basetime;
 
-        private int compteurQuestion;
+        private int currentNumberQuestion;
 
         public WriteGameInterface()
         {
             this.InitializeComponent();
-
-            compteurQuestion = (int)Application.Current.Resources["compteur"];
-
-            lblTitle.Text = compteurQuestion.ToString();
 
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
@@ -55,8 +51,9 @@ namespace Squizz_Project
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var compteurString = e.Parameter as string; //on get le compteur envoyé en paramètre
-            compteurQuestion = int.Parse(compteurString); //on parse le string renvoyé par le paramètre
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
         }
 
 
@@ -65,25 +62,25 @@ namespace Squizz_Project
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
 
-            compteurQuestion++;
+            currentNumberQuestion++;
 
             if (typePartie == 0)
             {
-                Frame.Navigate(typeof(ChoiceGameInterface), compteurQuestion.ToString());
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                Frame.Navigate(typeof(ChoiceGameInterface));
             }
             else
             {
-                Frame.Navigate(typeof(WriteGameInterface), compteurQuestion.ToString());
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
+                Frame.Navigate(typeof(WriteGameInterface));
             }
-
-            Application.Current.Resources["compteur"] = compteurQuestion;
         }
 
         #region Timer
         async void timer_Tick(object sender, object e)
         {
             basetime = basetime - 1;
-            //lblTimer.Text = basetime.ToString();
+            lblTimer.Text = basetime.ToString();
             if (basetime == 0)
             {
                 aTimer.Stop();

@@ -17,7 +17,7 @@
 
         <TextBlock
             Name="lblTitle"
-            Text="{Binding Path=compteur}" 
+            Text="Question " 
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="20"
