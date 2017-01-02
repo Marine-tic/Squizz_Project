@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace Squizz_Project
 {
@@ -33,8 +23,27 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private void Play_Click(object sender, TappedRoutedEventArgs e)
         {
-            // Redirection vers la page du choix de type de jeu
-            Frame.Navigate(typeof(GameTypeSelectionPage), null);
+            int compteurQuestion = 1;
+            Application.Current.Resources["compteur"] = compteurQuestion;
+            Randomizer();
+        }
+
+        /// <summary>
+        /// Permet de switcher de type de question
+        /// </summary>
+        private void Randomizer()
+        {
+            Random rand = new Random();
+            int typePartie = rand.Next(0, 2);
+
+            if (typePartie == 0)
+            {
+                Frame.Navigate(typeof(ChoiceGameInterface));
+            }
+            else
+            {
+                Frame.Navigate(typeof(WriteGameInterface));
+            }
         }
 
         /// <summary>
@@ -56,6 +65,20 @@ namespace Squizz_Project
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(Rules), null);
+        }
+
+        private void about_click(object sender, TappedRoutedEventArgs e)
+        {
+            PopupTextBlock.Text =
+                "Application" + Environment.NewLine +
+                "Version 0.9" + Environment.NewLine +
+                "Informations légales Copyright(c) 2017, " + Environment.NewLine +
+                "Marine Landraudie,\nGlenn Le Menn,\nValentin Léon,\nGuillaume Lombart";
+            if (popup.IsOpen)
+            {
+                popup.IsOpen = false;
+            }
+            else { popup.IsOpen = true; }
         }
     }
 }

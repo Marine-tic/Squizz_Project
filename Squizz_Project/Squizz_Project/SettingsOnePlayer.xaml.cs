@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
@@ -17,8 +18,8 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
             this.lblSliderTime.Text = this.timeSlider.Value.ToString();
-            //Frame root = Window.Current.Content as Frame;
-            //root.Navigated += OnNavigated;
+            Frame root = Window.Current.Content as Frame;
+            root.Navigated += OnNavigated;
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
@@ -41,6 +42,7 @@ namespace Squizz_Project
 
             Slider timeSlider = sender as Slider;
             lblSliderTime.Text = timeSlider.Value.ToString();
+            Application.Current.Resources["timer"] = timeSlider.Value;
         }
     }
 }

@@ -13,8 +13,11 @@
                     Stretch="UniformToFill" />
         </Grid.Background>
 
+        <TextBlock Name="lblTimer" />
+
         <TextBlock
-            Text="Question 2"  
+            Name="lblTitle"
+            Text="{Binding Path=compteur}" 
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="20"

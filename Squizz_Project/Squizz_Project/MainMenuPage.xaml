@@ -5,6 +5,9 @@
     xmlns:local="using:Squizz_Project"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Media="using:Microsoft.Xaml.Interactions.Media"
     mc:Ignorable="d">
 
     <Grid>
@@ -12,6 +15,15 @@
             <ImageBrush ImageSource="Assets/Claptrap.png"
                     Stretch="UniformToFill" />
         </Grid.Background>
+
+        <Grid.Resources>
+            <Storyboard x:Name="ShowPopup">
+                <PopInThemeAnimation Storyboard.TargetName="popup" />
+            </Storyboard>
+            <Storyboard x:Name="HidePopup">
+                <PopOutThemeAnimation Storyboard.TargetName="popup" />
+            </Storyboard>
+        </Grid.Resources>
 
         <Button 
             Grid.Column="0" 
@@ -25,22 +37,42 @@
             <Image Source="Assets/s'Quizz.png" 
                    Opacity="1" 
                    Stretch="UniformToFill"
-                   Margin="-16,-0.667,0,-0.333" Height="111" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="266"/>
+                   Margin="-16,-0.667,0,-0.333" Height="111" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="266" Tapped="about_click" />
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:ChangePropertyAction 
+                        TargetObject="{Binding ElementName=popup}" 
+                        PropertyName="IsOpen" Value="True"/>
+                    <Media:ControlStoryboardAction 
+                        Storyboard="{StaticResource ShowPopup}"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
         </Button>
 
-        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
-            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
-                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
-                BorderThickness="2" Width="200" Height="200">
+        <!-- Pop up -->
+        <Popup x:Name="popup" IsOpen="false" HorizontalAlignment="Center" Margin="0, 50, 200, 0">
+            <Popup.Transitions>
+                <TransitionCollection>
+                    <PopupThemeTransition />
+                </TransitionCollection>
+            </Popup.Transitions>
+            <Grid Height="400" Width="380" Background="#505050" CornerRadius="10">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Put the rules here" FontSize="24.667" HorizontalAlignment="Center"/>
-
+                    <TextBlock Name="PopupTextBlock" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="15"/>
+                    <Button Content="Fermer" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Media:ControlStoryboardAction 
+                                Storyboard="{StaticResource HidePopup}"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
                 </StackPanel>
-            </Border>
+            </Grid>
         </Popup>
 
         <Button 
-            Grid.Column="0" 
+            Grid.Column="0"
             HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch" 
             Padding="0" BorderThickness="0"
@@ -58,7 +90,7 @@
                 FontSize="20"
                 Background="#FF2B2B2B" 
                 Margin="104,192,104,397" 
-                Height="51" Tapped="Play_Click" HorizontalAlignment="Stretch" 
+                Height="51" Tapped="Play_Click" HorizontalAlignment="Stretch"
                 />
 
         <Button x:Name="btnSettings" 

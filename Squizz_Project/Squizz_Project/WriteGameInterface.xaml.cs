@@ -22,10 +22,16 @@ namespace Squizz_Project
         private DispatcherTimer aTimer;
         private double basetime;
 
+        private int compteurQuestion;
 
         public WriteGameInterface()
         {
             this.InitializeComponent();
+
+            compteurQuestion = (int)Application.Current.Resources["compteur"];
+
+            lblTitle.Text = compteurQuestion.ToString();
+
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
@@ -44,25 +50,40 @@ namespace Squizz_Project
             BitmapImage myBitmapImage = new BitmapImage(new Uri(question.UrlImage));
             picImageGame.Source = myBitmapImage;
 
+           // this.lblTitle.Text += compteurQuestion.ToString();
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var compteurString = e.Parameter as string; //on get le compteur envoyé en paramètre
+            compteurQuestion = int.Parse(compteurString); //on parse le string renvoyé par le paramètre
+        }
+
 
         private void Randomizer()
         {
             Random rand = new Random();
-            int typePartie = rand.Next(0, 1);
+            int typePartie = rand.Next(0, 2);
+
+            compteurQuestion++;
 
             if (typePartie == 0)
-                Frame.Navigate(typeof(ChoiceGameInterface), null);
+            {
+                Frame.Navigate(typeof(ChoiceGameInterface), compteurQuestion.ToString());
+            }
             else
-                Frame.Navigate(typeof(WriteGameInterface), null);
+            {
+                Frame.Navigate(typeof(WriteGameInterface), compteurQuestion.ToString());
+            }
 
+            Application.Current.Resources["compteur"] = compteurQuestion;
         }
 
         #region Timer
         async void timer_Tick(object sender, object e)
         {
             basetime = basetime - 1;
-            lblTimer.Text = basetime.ToString();
+            //lblTimer.Text = basetime.ToString();
             if (basetime == 0)
             {
                 aTimer.Stop();
@@ -73,7 +94,7 @@ namespace Squizz_Project
 
         private void setTimer()
         {
-            basetime = timeSlider.Value;
+            basetime = 30;//(double)Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
             aTimer.Start();
         }

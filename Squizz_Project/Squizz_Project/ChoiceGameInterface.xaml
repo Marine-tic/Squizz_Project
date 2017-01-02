@@ -19,11 +19,11 @@
             Foreground="Black"
             FontSize="20"
             FontWeight="Bold"
-            Text="timer"
             Margin="293,79,0,532"/>
 
         <TextBlock
-            Text="Question 1"  
+            Name="lblTitle"
+            Text="{Binding Path=compteur}"
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="20"

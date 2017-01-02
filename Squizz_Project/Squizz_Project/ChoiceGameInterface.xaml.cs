@@ -5,6 +5,7 @@ using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
@@ -13,10 +14,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Squizz_Project
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
-    ///
     public sealed partial class ChoiceGameInterface : Page
     {
         // Déclarer une question et 4 propositions
@@ -32,15 +29,21 @@ namespace Squizz_Project
         //variable pour Timer
         private DispatcherTimer aTimer;
         private double basetime;
-
+        
+        //numéro de la question
+        private int compteurQuestion;
 
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
 
+            compteurQuestion = (int)Application.Current.Resources["compteur"];
+
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+
+            lblTitle.Text = "Question " + compteurQuestion;
 
             initGame();
 
@@ -55,10 +58,11 @@ namespace Squizz_Project
 
             // Ensuite faire une liste de questions avec une liste de proposition associé à chaque question et prendre un nombre aléatoire pour la sélection de la question
             listeDeQuestion = new Questions();
-            // Remplir les champs en conséquence de la même manière que plus haut.
-            // Remplacer l'evenement OK et PERDU par une nouvelle question s'il y en a une nouvelle ou alors PERDU avec un écran de perdu? à voir en fonction des interfaces déjà présentes
+            // Remplir les champs en conséquence de la même manière que plus haut.// 
+            //Remplacer l'evenement OK et PERDU par une nouvelle question s'il y en a une nouvelle ou alors PERDU avec un écran de perdu? à voir en fonction des interfaces déjà présentes
 
             // Quand tout ça marche ajouter la gestion du score
+            //=> faire un update de la table des joueurs dans ce cas
 
             // Coté online quand dispo
             // Connexion à la BDD pour récupérer la question numéro random ainsi que ses propositions associés et instancier les objets avec les valeurs récupérées de la BDD
@@ -92,22 +96,22 @@ namespace Squizz_Project
 
         // Ajouter un tapListener sur chaque proposition et vérifier si la proposition cliquée est la réponse dans ce cas afficher YOU WIN et mettre la case cochée en vert
         // sinon afficher YOU LOSE et mettre la case en rouge
-        private void answerTopLeft_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerTopLeft_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal0, answerTopLeft);
         }
 
-        private void answerTopRight_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerTopRight_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal1, answerTopRight);
         }
 
-        private void answerBottomLeft_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerBottomLeft_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal2, answerBottomLeft);
         }
 
-        private void answerBottomRight_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerBottomRight_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal3, answerBottomRight);
         }
@@ -138,10 +142,17 @@ namespace Squizz_Project
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
 
+            compteurQuestion++;
+
             if (typePartie == 0)
-                Frame.Navigate(typeof(ChoiceGameInterface), null);
+            {
+                Frame.Navigate(typeof(ChoiceGameInterface));
+            }
             else
-                Frame.Navigate(typeof(WriteGameInterface), null);
+            {
+                Frame.Navigate(typeof(WriteGameInterface));
+            }
+            Application.Current.Resources["compteur"] = compteurQuestion;
         }
 
         #region Timer
@@ -159,7 +170,7 @@ namespace Squizz_Project
 
         private void setTimer()
         {
-            basetime = timeSlider.Value;
+            basetime = 30;//(double)Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
             aTimer.Start();
         }
