@@ -31,19 +31,19 @@ namespace Squizz_Project
         private double basetime;
         
         //numéro de la question
-        private int compteurQuestion;
+        private int currentNumberQuestion;
 
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
 
-            compteurQuestion = (int)Application.Current.Resources["compteur"];
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
 
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
-            lblTitle.Text = "Question " + compteurQuestion;
+            //lblTitle.Text = "Question " + compteurQuestion;
 
             initGame();
 
@@ -94,6 +94,13 @@ namespace Squizz_Project
             answerBottomRight.Content = proposal3.ProposalName;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
+        }
+
         // Ajouter un tapListener sur chaque proposition et vérifier si la proposition cliquée est la réponse dans ce cas afficher YOU WIN et mettre la case cochée en vert
         // sinon afficher YOU LOSE et mettre la case en rouge
         private void answerTopLeft_Tapped(object sender, TappedRoutedEventArgs e)
@@ -124,12 +131,14 @@ namespace Squizz_Project
                 var dialog = new MessageDialog(YOU_WIN);
                 await dialog.ShowAsync();
                 Randomizer();
+                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
             }
             else
             {
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
                 var dialog = new MessageDialog(YOU_LOSE);
                 await dialog.ShowAsync();
+                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
                 Frame.Navigate(typeof(ScoreboardPage), null);
             }
         }
@@ -142,17 +151,18 @@ namespace Squizz_Project
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
 
-            compteurQuestion++;
+            currentNumberQuestion++;
 
             if (typePartie == 0)
             {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
                 Frame.Navigate(typeof(ChoiceGameInterface));
             }
             else
             {
+                Application.Current.Resources["compteur"] = currentNumberQuestion;
                 Frame.Navigate(typeof(WriteGameInterface));
             }
-            Application.Current.Resources["compteur"] = compteurQuestion;
         }
 
         #region Timer
@@ -165,6 +175,7 @@ namespace Squizz_Project
                 aTimer.Stop();
                 var dialog = new MessageDialog("Perdu");
                 await dialog.ShowAsync();
+                Frame.Navigate(typeof(ScoreboardPage), null); //on renvoie sur la page des scores si temps fini
             }
         }
 
