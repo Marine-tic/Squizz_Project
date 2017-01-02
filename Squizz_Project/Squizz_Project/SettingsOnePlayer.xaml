@@ -11,45 +11,48 @@
 
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Cloptrop.png"
-                    Stretch="UniformToFill" />
+                        Stretch="UniformToFill" />
         </Grid.Background>
 
         <TextBlock
-            Text="Réglages de la partie"  
-            Foreground="Black" 
+            Text="Réglages de la partie"
+            Foreground="Black"
             FontSize="20"
             TextAlignment="Center"
-            FontWeight="Bold" Margin="69,76,66,529"/>
+            FontWeight="Bold" Margin="69,76,66,529" />
 
         <!-- SLIDER -->
-        <TextBlock 
+        <TextBlock
             Text="Délai de réponse du joueur :"
             TextWrapping="Wrap"
             FontWeight="Bold"
             TextAlignment="Center"
-            Foreground="Black" 
+            Foreground="Black"
             FontSize="15"
-            Margin="43,189,43,423"/>
+            Margin="43,189,43,423"
+            HorizontalAlignment="Stretch" />
         <TextBlock
             Name="lblSliderTime"
             TextWrapping="Wrap"
             TextAlignment="Center"
-            Foreground="Black" 
+            Foreground="Black"
             FontSize="15"
-            Margin="43,217,43,395"/>
+            Margin="43,217,43,395"
+            HorizontalAlignment="Stretch" />
         <Slider x:Name="timeSlider"
-            Margin="43,243,43,362"
-            TickFrequency="20" Value="30" ValueChanged="timeSlider_ValueChanged"
-            />
+                Margin="43,243,43,362"
+                TickFrequency="20"
+                ValueChanged="timeSlider_ValueChanged"
+                HorizontalAlignment="Stretch"/>
 
 
-        <Button x:Name="btnBack" 
-                Content="Retour" 
+        <Button x:Name="btnBack"
+                Content="Retour"
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
+                Style="{StaticResource BasicButton}"
                 Height="51" Width="152"
-                Margin="108,539,0,50" Tapped="btnBack_Tapped" 
-                />
+                Margin="104,539,104,50"
+                HorizontalAlignment="Stretch" Tapped="btnBack_Tapped" />
     </Grid>
 </Page>

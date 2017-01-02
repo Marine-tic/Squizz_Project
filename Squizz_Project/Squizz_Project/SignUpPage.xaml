@@ -10,48 +10,51 @@
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Cloptrop.png"
-                    Stretch="UniformToFill" />
+                        Stretch="UniformToFill" />
         </Grid.Background>
 
         <TextBlock
-            Text="Nouveau compte"  
+            Text="Nouveau compte"
             TextAlignment="Center"
-            Foreground="Black" 
+            Foreground="Black"
             FontSize="20"
             FontWeight="Bold"
-            Margin="69,76,66,529"/>
+            Margin="69,76,66,529" />
 
-        <TextBox x:Name="txtUsername" 
-                     PlaceholderText="Pseudo..."
-                     Margin="44,186,42,414"
-                     Height="40"
-                     Background="#FF505050"
-                     Foreground="White"
-                     BorderBrush="#FF2B2B2B" FontSize="18"/>
+        <TextBox x:Name="txtUsername"
+                 PlaceholderText="Pseudo..."
+                 Margin="44,186,42,414"
+                 HorizontalAlignment="Stretch"
+                 Height="40"
+                 Background="#FF505050"
+                 Foreground="White"
+                 BorderBrush="#FF2B2B2B" FontSize="18" />
 
-        <TextBox x:Name="txtMail" 
-                     PlaceholderText="Email..."
-                     Margin="44,241,42,359"
-                     Height="40"
-                     Background="#FF505050"
-                     BorderBrush="#FF2B2B2B" FontSize="18"/>
+        <TextBox x:Name="txtMail"
+                 PlaceholderText="Email..."
+                 Margin="44,241,42,359"
+                 HorizontalAlignment="Stretch"
+                 Height="40"
+                 Background="#FF505050"
+                 BorderBrush="#FF2B2B2B" FontSize="18" />
 
-        <PasswordBox x:Name="txtPassword" 
+        <PasswordBox x:Name="txtPassword"
                      PlaceholderText="Mot de passe..."
                      Margin="44,296,42,304"
+                     HorizontalAlignment="Stretch"
                      Height="40"
                      Background="#FF505050"
-                     BorderBrush="#FF2B2B2B" FontSize="18"/>
+                     BorderBrush="#FF2B2B2B" FontSize="18" />
 
 
-        <Button x:Name="btnCreation" 
-                Content="Création" 
+        <Button x:Name="btnCreation"
+                Content="Création"
                 Foreground="White"
                 FontSize="20"
-                Background="#FF2B2B2B" 
-                Margin="76,375,0,214" 
-                Height="51" Width="210" 
-                />
+                Style="{StaticResource BasicButton}"
+                Margin="75,375,75,214"
+                HorizontalAlignment="Stretch"
+                Height="51" Width="210" />
 
     </Grid>
 </Page>
