@@ -43,12 +43,13 @@
                      />
 
         <Button
+            x:Name="forgotten_PasswordButton"
             Content="Mot de passe oublié ?" 
             HorizontalContentAlignment="Center"
             Foreground="#FF2B2B2B" 
             Background="Transparent"
             FontSize="13"
-            Margin="92,252,-2,359" Width="177"/>
+            Margin="92,252,-2,359" Width="177" Click="forgotten_PasswordButton_Click"/>
 
 
 

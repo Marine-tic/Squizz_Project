@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataManagement" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:11969/DataManagement.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:11969/DataManagement.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:11969/DataManagement.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SquizzWebService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataManagement_GetQuestionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionById" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_GetQuestionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_ConnectionCheckPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectionCheckPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_ConnectionCheckPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectionCheckPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_UpdateRandomPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRandomPassword" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_UpdateRandomPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRandomPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_GetPlayerScoreList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerScoreList" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_GetPlayerScoreList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerScoreListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_GetPlayerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerById" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_GetPlayerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_ForgotPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForgotPassword" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_ForgotPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForgotPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_IncrementScorePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:IncrementScorePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_IncrementScorePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IncrementScorePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_SignupPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignupPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_SignupPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignupPlayerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataManagement">
+    <wsdl:operation name="GetQuestionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/GetQuestionById" message="tns:IDataManagement_GetQuestionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/GetQuestionByIdResponse" message="tns:IDataManagement_GetQuestionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionCheckPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/ConnectionCheckPlayer" message="tns:IDataManagement_ConnectionCheckPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/ConnectionCheckPlayerResponse" message="tns:IDataManagement_ConnectionCheckPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRandomPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/UpdateRandomPassword" message="tns:IDataManagement_UpdateRandomPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/UpdateRandomPasswordResponse" message="tns:IDataManagement_UpdateRandomPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerScoreList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerScoreList" message="tns:IDataManagement_GetPlayerScoreList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerScoreListResponse" message="tns:IDataManagement_GetPlayerScoreList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerById" message="tns:IDataManagement_GetPlayerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerByIdResponse" message="tns:IDataManagement_GetPlayerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/ForgotPassword" message="tns:IDataManagement_ForgotPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/ForgotPasswordResponse" message="tns:IDataManagement_ForgotPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IncrementScorePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/IncrementScorePlayer" message="tns:IDataManagement_IncrementScorePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/IncrementScorePlayerResponse" message="tns:IDataManagement_IncrementScorePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignupPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/SignupPlayer" message="tns:IDataManagement_SignupPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/SignupPlayerResponse" message="tns:IDataManagement_SignupPlayer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataManagement" type="tns:IDataManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetQuestionById">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/GetQuestionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionCheckPlayer">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/ConnectionCheckPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRandomPassword">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/UpdateRandomPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerScoreList">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/GetPlayerScoreList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerById">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/GetPlayerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPassword">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/ForgotPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementScorePlayer">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/IncrementScorePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignupPlayer">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/SignupPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataManagement">
+    <wsdl:port name="BasicHttpBinding_IDataManagement" binding="tns:BasicHttpBinding_IDataManagement">
+      <soap:address location="http://localhost:11969/DataManagement.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

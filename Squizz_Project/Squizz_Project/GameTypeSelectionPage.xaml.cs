@@ -26,5 +26,10 @@ namespace Squizz_Project
         {
             this.InitializeComponent();
         }
+
+        private void Solo_Game_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(WriteGameInterface));
+        }
     }
 }
