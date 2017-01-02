@@ -1,0 +1,1 @@
+﻿DBCC CHECKIDENT (player, RESEED, 0)

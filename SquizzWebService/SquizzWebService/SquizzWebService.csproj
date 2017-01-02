@@ -69,6 +69,7 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -93,14 +94,17 @@
     <Content Include="App_Data\SquizzDatabase_log.ldf">
       <DependentUpon>SquizzDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="Service1.svc" />
+    <Content Include="DataManagement.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Proposal.cs" />
+    <Compile Include="Classes\Question.cs" />
+    <Compile Include="DataManagement.svc.cs">
+      <DependentUpon>DataManagement.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="IDataManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SquizzWebService.DataManagement" CodeBehind="DataManagement.svc.cs" %>
