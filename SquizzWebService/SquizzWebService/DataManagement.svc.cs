@@ -14,8 +14,9 @@ namespace SquizzWebService
     [ServiceBehavior]
     public class DataManagement : IDataManagement
     {
+        // REMARQUE : Penser à changer le path du fichier de database en conséquence du clonage du dépot un clic sur SquizzDatabase.mdf affichera le chemin complet à copier coller ci dessous et escape text.
         private readonly string _connectionString =
-            "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\Auna\\Source\\Repos\\Squizz_Project\\SquizzWebService\\SquizzWebService\\App_Data\\SquizzDatabase.mdf';Integrated Security=True";
+            "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\Auna\\Documents\\Squizz_Project\\SquizzWebService\\SquizzWebService\\App_Data\\SquizzDatabase.mdf';Integrated Security=True";
 
         public Question GetQuestionById(int idQuestion)
         {
