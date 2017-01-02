@@ -50,6 +50,7 @@ namespace Squizz_Project
 
         private void initGame()
         {
+            lblTitle.Text = "Question " + currentNumberQuestion;
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
             question = new Question(1, "scott pilgrim the game", "ms-appx://Squizz_Project/Assets/GamePicture/scott.jpg", 0);
             // Telecharger et loader toutes les images dans le projet (pour pouvoir les charger lors de l'instanciation de l'objet)
@@ -84,6 +85,14 @@ namespace Squizz_Project
             }
 
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
+        }
+
 
         private void checkBasetime()
         {
@@ -134,19 +143,19 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private async void validateAnswer_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            int cpt = 1;
             if (txtPlayerAnswer.Text.ToLower().Trim() == question.QuestionName)
             {
                 var dialog = new MessageDialog("WINNER");
                 await dialog.ShowAsync();
                 Randomizer();
+                txtPlayerAnswer.Text = String.Empty;
                 txtPlayerAnswer.IsReadOnly = true;
-                cpt++;
             }
             else
             {
                 var dialog = new MessageDialog("LOSER");
                 await dialog.ShowAsync();
+                txtPlayerAnswer.Text = string.Empty;
                 txtPlayerAnswer.IsReadOnly = true;
                 Frame.Navigate(typeof(ScoreboardPage), null);
             }

@@ -43,9 +43,9 @@ namespace Squizz_Project
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
-            temp = (int)Application.Current.Resources["timer"];
-            if (temp == -1)
-                Application.Current.Resources["timer"] = 30.0;
+            //temp = (int)Application.Current.Resources["timer"];
+            //if (temp == -1)
+            //    Application.Current.Resources["timer"] = 30.0;
 
             currentNumberQuestion = (int)Application.Current.Resources["compteur"];
 
@@ -102,6 +102,13 @@ namespace Squizz_Project
             answerTopRight.Content = proposal1.ProposalName;
             answerBottomLeft.Content = proposal2.ProposalName;
             answerBottomRight.Content = proposal3.ProposalName;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
         }
 
         private void Question1()

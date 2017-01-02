@@ -53,8 +53,8 @@ namespace Squizz_Project
             else
             {
                 msg = client.ConnectionCheckPlayerAsync(txtUsernameConnexion.Text, txtUserNamePassword.Password).Result;
-                if(msg.Contains("sucessful"))
-                  this.Frame.Navigate(typeof(MainMenuPage), null);
+                if(msg.Contains("Connection successful"))
+                  this.Frame.Navigate(typeof(MainMenuPage));
             }
 
             //this.Frame.Navigate(typeof(GameTypeSelectionPage)); 

@@ -45,7 +45,6 @@
 
         <TextBlock
             Name="lblTitle"
-            Text="{Binding Path=compteur}"
             TextAlignment="Center"
             Foreground="Black" 
             FontSize="20"

@@ -100,5 +100,10 @@ namespace Squizz_Project
                 "Marine Landraudie,\n Glenn Le Menn,\n Valentin Léon,\n Guillaume Lombart";
             popup.IsOpen = !popup.IsOpen;
         }
+
+        private void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //bouton de déconnexion
+        }
     }
 }
