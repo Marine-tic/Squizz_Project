@@ -21,18 +21,32 @@ namespace Squizz_Project
         //variable pour Timer
         private DispatcherTimer aTimer;
         private double basetime;
+        private double currentTimer;
 
         private int currentNumberQuestion;
 
         public WriteGameInterface()
         {
             this.InitializeComponent();
+            if ((int)Application.Current.Resources["timer"] == -1)
+                Application.Current.Resources["timer"] = 30.0;
+
 
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
-            initGame();
+            initGame();            
+            
+            //Timer pour la manche
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+            aTimer = new DispatcherTimer();
+            aTimer.Interval = new TimeSpan(0, 0, 1);
+            aTimer.Tick += timer_Tick;
+
+            setTimer();
+
+
         }
 
         private void initGame()
@@ -45,8 +59,6 @@ namespace Squizz_Project
             // Changer l'image courante par celle de la question
             BitmapImage myBitmapImage = new BitmapImage(new Uri(question.UrlImage));
             picImageGame.Source = myBitmapImage;
-
-           // this.lblTitle.Text += compteurQuestion.ToString();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -56,7 +68,9 @@ namespace Squizz_Project
             lblTitle.Text = "Question " + currentNumberQuestion;
         }
 
-
+        /// <summary>
+        /// fonction de génération aléatoire d'interface de jeu
+        /// </summary>
         private void Randomizer()
         {
             Random rand = new Random();
@@ -67,16 +81,36 @@ namespace Squizz_Project
             if (typePartie == 0)
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
+                checkBasetime();
                 Frame.Navigate(typeof(ChoiceGameInterface));
+                aTimer.Stop();
             }
             else
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
+                checkBasetime();
                 Frame.Navigate(typeof(WriteGameInterface));
+                aTimer.Stop();
             }
         }
 
+        private void checkBasetime()
+        {
+            if (basetime < 30.0)
+            {
+                Application.Current.Resources["timer"] = 30.0;
+                basetime = (double)Application.Current.Resources["timer"];
+                //aTimer.Stop();
+            }
+        }
+
+
         #region Timer
+        /// <summary>
+        /// fonction asynchrone qui actionne le timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void timer_Tick(object sender, object e)
         {
             basetime = basetime - 1;
@@ -86,12 +120,16 @@ namespace Squizz_Project
                 aTimer.Stop();
                 var dialog = new MessageDialog("Perdu");
                 await dialog.ShowAsync();
+                Frame.Navigate(typeof(ScoreboardPage));
             }
         }
 
+        /// <summary>
+        /// on règle le timer
+        /// </summary>
         private void setTimer()
         {
-            basetime = 30;//(double)Application.Current.Resources["timer"];
+            basetime = (double)Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
             aTimer.Start();
         }
@@ -111,6 +149,7 @@ namespace Squizz_Project
             {
                 var dialog = new MessageDialog("WINNER");
                 await dialog.ShowAsync();
+                checkBasetime();
                 Randomizer();
                 txtPlayerAnswer.IsReadOnly = true;
                 cpt++;
@@ -119,6 +158,7 @@ namespace Squizz_Project
             {
                 var dialog = new MessageDialog("LOSER");
                 await dialog.ShowAsync();
+                checkBasetime();
                 txtPlayerAnswer.IsReadOnly = true;
                 Frame.Navigate(typeof(ScoreboardPage), null);
             }

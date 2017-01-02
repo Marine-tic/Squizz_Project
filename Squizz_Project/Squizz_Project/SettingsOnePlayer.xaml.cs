@@ -4,6 +4,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Controls.Primitives;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,7 +22,12 @@ namespace Squizz_Project
             Frame root = Window.Current.Content as Frame;
             root.Navigated += OnNavigated;
         }
-
+        
+        /// <summary>
+        /// Bouton de retour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainMenuPage), null);
@@ -37,9 +43,13 @@ namespace Squizz_Project
         }
         #endregion
 
-        private void timeSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        /// <summary>
+        /// Affichage dynamique du temps depuis le slider
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-
             Slider timeSlider = sender as Slider;
             lblSliderTime.Text = timeSlider.Value.ToString();
             Application.Current.Resources["timer"] = timeSlider.Value;

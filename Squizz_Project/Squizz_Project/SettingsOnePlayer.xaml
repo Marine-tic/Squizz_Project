@@ -39,7 +39,7 @@
             Margin="43,217,43,395"/>
         <Slider x:Name="timeSlider"
             Margin="43,243,43,362"
-            TickFrequency="20" ValueChanged="timeSlider_ValueChanged"
+            TickFrequency="20" Value="30" ValueChanged="timeSlider_ValueChanged"
             />
 
 
