@@ -5,7 +5,7 @@
     xmlns:local="using:Squizz_Project"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.Background>
@@ -30,7 +30,7 @@
                 Style="{StaticResource BasicButton}"
                 Height="51" Width="152"
                 HorizontalAlignment="Stretch"
-                Margin="106,539,102,50" Tapped="btnBack_Tapped" />
+                Margin="106,539,102,50" Tapped="btnBack_Tapped" Click="btnBack_Click" />
         <!-- Grille des scores -->
         <ListView x:Name="lvDataTemplates"
                   Margin="33,139,33,146"
@@ -41,11 +41,11 @@
                     <StackPanel>
                         <TextBlock Style="{StaticResource BasicTitleStyle}">
                             <Run Text="Joueur: " />
-                            <Run Text="{Binding Title}" />
+                            <Run Text="{Binding Username}" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource BasicTextStyle}">
                             <Run Text="Score: " />
-                            <Run Text="{Binding Text}" />
+                            <Run Text="{Binding Score}" />
                         </TextBlock>
                     </StackPanel>
                 </DataTemplate>

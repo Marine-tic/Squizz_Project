@@ -103,7 +103,8 @@ namespace Squizz_Project
 
         private void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //bouton de déconnexion
+            Application.Current.Resources.Remove("user");
+            Frame.Navigate(typeof(ConnexionPage),null);
         }
     }
 }

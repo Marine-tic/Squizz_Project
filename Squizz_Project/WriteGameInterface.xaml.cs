@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Squizz_Project.SquizzWebService;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Windows.UI.Core;
@@ -19,8 +20,9 @@ namespace Squizz_Project
     public sealed partial class WriteGameInterface : Page
     {
         private IList<Question> listQuestions = new List<Question>();
-        
 
+        DataManagementClient client = new DataManagementClient();
+        SquizzWebService.Player currentPlayer = (SquizzWebService.Player)Application.Current.Resources["user"];
         //variable pour Timer
         private DispatcherTimer aTimer;
         private int basetime;
@@ -118,14 +120,6 @@ namespace Squizz_Project
             }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
-            lblTitle.Text = "Question " + currentNumberQuestion;
-        }
-
-
         private void checkBasetime()
         {
             if (basetime < 30)
@@ -154,6 +148,7 @@ namespace Squizz_Project
                 setTimer();
                 var dialog = new MessageDialog("Time's UP ! Loser !");
                 await dialog.ShowAsync();
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage));
             }
         }
@@ -207,8 +202,8 @@ namespace Squizz_Project
                 setTimer();
                 checkBasetime();
                 txtPlayerAnswer.IsReadOnly = false;
-               
-               
+                aTimer.Stop();
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage), null);
                
             }

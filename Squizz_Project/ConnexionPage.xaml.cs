@@ -5,6 +5,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Squizz_Project.SquizzWebService;
+using Windows.UI.Xaml;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -52,9 +53,14 @@ namespace Squizz_Project
             }
             else
             {
-                msg = client.ConnectionCheckPlayerAsync(txtUsernameConnexion.Text, txtUserNamePassword.Password).Result;
-                if(msg.Contains("successful"))
-                  this.Frame.Navigate(typeof(MainMenuPage), null);
+                msg = await client.ConnectionCheckPlayerAsync(txtUsernameConnexion.Text, txtUserNamePassword.Password);
+                if (msg.Contains("successful"))
+                {
+                    SquizzWebService.Player p = await client.GetPlayerByUsernameAsync(txtUsernameConnexion.Text);
+                    Application.Current.Resources["user"] = p; 
+                    this.Frame.Navigate(typeof(MainMenuPage), null);
+                }
+                  
             }
 
             //this.Frame.Navigate(typeof(GameTypeSelectionPage)); 

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Squizz_Project.SquizzWebService;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,6 +25,8 @@ namespace Squizz_Project
     /// </summary>
     public sealed partial class ScoreboardPage : Page
     {
+        DataManagementClient client = new DataManagementClient();
+        ObservableCollection<SquizzWebService.Player> result = new ObservableCollection<SquizzWebService.Player>();
         public ScoreboardPage()
         {
             this.InitializeComponent();
@@ -30,6 +35,22 @@ namespace Squizz_Project
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainMenuPage), null);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() => getScoreList()).Wait();
+            lvDataTemplates.ItemsSource = result;
+        }
+
+        private async Task getScoreList()
+        {
+            result = await client.GetPlayerScoreListAsync();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainMenuPage));
         }
     }
 }

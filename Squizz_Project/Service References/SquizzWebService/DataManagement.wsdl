@@ -37,6 +37,12 @@
   <wsdl:message name="IDataManagement_GetPlayerById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayerByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataManagement_GetPlayerByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IDataManagement_GetPlayerByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerByUsernameResponse" />
+  </wsdl:message>
   <wsdl:message name="IDataManagement_ForgotPassword_InputMessage">
     <wsdl:part name="parameters" element="tns:ForgotPassword" />
   </wsdl:message>
@@ -75,6 +81,10 @@
     <wsdl:operation name="GetPlayerById">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerById" message="tns:IDataManagement_GetPlayerById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerByIdResponse" message="tns:IDataManagement_GetPlayerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerByUsername" message="tns:IDataManagement_GetPlayerByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataManagement/GetPlayerByUsernameResponse" message="tns:IDataManagement_GetPlayerByUsername_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ForgotPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataManagement/ForgotPassword" message="tns:IDataManagement_ForgotPassword_InputMessage" />
@@ -129,6 +139,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPlayerById">
       <soap:operation soapAction="http://tempuri.org/IDataManagement/GetPlayerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerByUsername">
+      <soap:operation soapAction="http://tempuri.org/IDataManagement/GetPlayerByUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

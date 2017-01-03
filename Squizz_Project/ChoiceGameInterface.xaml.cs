@@ -1,4 +1,5 @@
 ﻿using Squizz_Project.Classes;
+using Squizz_Project.SquizzWebService;
 using System;
 using Windows.UI;
 using Windows.UI.Core;
@@ -16,6 +17,8 @@ namespace Squizz_Project
 {
     public sealed partial class ChoiceGameInterface : Page
     {
+        DataManagementClient client = new DataManagementClient();
+        SquizzWebService.Player currentPlayer = (SquizzWebService.Player)Application.Current.Resources["user"];
         // Déclarer une question et 4 propositions
         Question question;
         Question question2;
@@ -127,13 +130,6 @@ namespace Squizz_Project
             ImageGame.Source = myBitmapImage;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
-            lblTitle.Text = "Question " + currentNumberQuestion;
-        }
-
         #region Check des questions/réponses
         // Ajouter un tapListener sur chaque proposition et vérifier si la proposition cliquée est la réponse dans ce cas afficher YOU WIN et mettre la case cochée en vert
         // sinon afficher YOU LOSE et mettre la case en rouge
@@ -179,6 +175,8 @@ namespace Squizz_Project
                 setTimer();
                 checkBasetime();
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+                aTimer.Stop();
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage), null);
             }
            
@@ -222,6 +220,8 @@ namespace Squizz_Project
                 aTimer.Stop();
                 var dialog = new MessageDialog("Perdu");
                 await dialog.ShowAsync();
+
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage), null); //on renvoie sur la page des scores si temps fini
             }
         }
