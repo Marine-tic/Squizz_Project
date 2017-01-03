@@ -43,6 +43,7 @@
                 Margin="43,243,43,362"
                 TickFrequency="20"
                 ValueChanged="timeSlider_ValueChanged"
+                Value="30"
                 HorizontalAlignment="Stretch"/>
 
 

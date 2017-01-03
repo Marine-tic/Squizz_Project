@@ -89,7 +89,7 @@ namespace Squizz_Project
         /// <summary>
         /// fonction de génération aléatoire d'interface de jeu
         /// </summary>
-        private void Randomizer()
+        private async void Randomizer()
         {
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
@@ -107,8 +107,9 @@ namespace Squizz_Project
                 checkBasetime();
                 aTimer.Stop();
                 setTimer();
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ChoiceGameInterface));
-                
+
             }
             else
             {
@@ -116,6 +117,7 @@ namespace Squizz_Project
                 checkBasetime();
                 aTimer.Stop();
                 setTimer();
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(WriteGameInterface));
             }
         }
@@ -148,7 +150,6 @@ namespace Squizz_Project
                 setTimer();
                 var dialog = new MessageDialog("Time's UP ! Loser !");
                 await dialog.ShowAsync();
-                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage));
             }
         }
@@ -203,7 +204,6 @@ namespace Squizz_Project
                 checkBasetime();
                 txtPlayerAnswer.IsReadOnly = false;
                 aTimer.Stop();
-                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage), null);
                
             }

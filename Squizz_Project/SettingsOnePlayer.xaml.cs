@@ -42,7 +42,7 @@ namespace Squizz_Project
 
             Slider timeSlider = sender as Slider;
             lblSliderTime.Text = timeSlider.Value.ToString();
-            Application.Current.Resources["timer"] = timeSlider.Value;
+            Application.Current.Resources["timer"] = (int)timeSlider.Value;
         }
     }
 }

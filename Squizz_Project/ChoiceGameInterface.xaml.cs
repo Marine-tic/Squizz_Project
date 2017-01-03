@@ -187,7 +187,7 @@ namespace Squizz_Project
         /// <summary>
         /// Permet de switcher de type de question
         /// </summary>
-        private void Randomizer()
+        private async void Randomizer()
         {
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
@@ -198,15 +198,19 @@ namespace Squizz_Project
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
                 checkBasetime();
-                Frame.Navigate(typeof(ChoiceGameInterface));
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 aTimer.Stop();
+                Frame.Navigate(typeof(ChoiceGameInterface));
+                
             }
             else
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
                 checkBasetime();
-                Frame.Navigate(typeof(WriteGameInterface));
+                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 aTimer.Stop();
+                Frame.Navigate(typeof(WriteGameInterface));
+                
             }
         }
 
@@ -221,7 +225,6 @@ namespace Squizz_Project
                 var dialog = new MessageDialog("Perdu");
                 await dialog.ShowAsync();
 
-                await client.IncrementScorePlayerAsync(currentPlayer.Id);
                 Frame.Navigate(typeof(ScoreboardPage), null); //on renvoie sur la page des scores si temps fini
             }
         }

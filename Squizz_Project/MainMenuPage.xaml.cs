@@ -27,8 +27,9 @@ namespace Squizz_Project
         public MainMenuPage()
         {
             this.InitializeComponent();
-            Application.Current.Resources["timer"] = -1;
-
+            if (!Application.Current.Resources.ContainsKey("timer")) {
+                Application.Current.Resources["timer"] = -1;
+            }
             ApplicationView.PreferredLaunchViewSize = new Size(360, 640);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(360, 640));
