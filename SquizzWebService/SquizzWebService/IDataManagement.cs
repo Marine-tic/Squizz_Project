@@ -41,7 +41,7 @@ namespace SquizzWebService
 
         // Inscription joueur
         [OperationContract]
-        string SignupPlayer(Player player);
+        string SignupPlayer(string username, string password, string mail);
 
     }
 }

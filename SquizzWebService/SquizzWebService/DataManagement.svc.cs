@@ -291,10 +291,10 @@ namespace SquizzWebService
             }
         }
 
-        public string SignupPlayer(Player player)
+        public string SignupPlayer(string username, string password, string mail)
         {
-            if (String.IsNullOrWhiteSpace(player.Username) || String.IsNullOrWhiteSpace(player.Password) ||
-                String.IsNullOrWhiteSpace(player.Mail))
+            if (String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(password) ||
+                String.IsNullOrWhiteSpace(mail))
             {
                 return "Error : Username, Password, Mail cannot be empty or null";
             }
@@ -307,9 +307,9 @@ namespace SquizzWebService
                         new SqlCommand(
                             "INSERT INTO Player (username, password, mail)  VALUES (@Username,@Password,@Mail)",
                             sqlConnection);
-                    registerPlayerSql.Parameters.AddWithValue("@Username", player.Username);
-                    registerPlayerSql.Parameters.AddWithValue("@Password", player.Password);
-                    registerPlayerSql.Parameters.AddWithValue("@Mail", player.Mail);
+                    registerPlayerSql.Parameters.AddWithValue("@Username", username);
+                    registerPlayerSql.Parameters.AddWithValue("@Password", password);
+                    registerPlayerSql.Parameters.AddWithValue("@Mail", mail);
                     return registerPlayerSql.ExecuteNonQuery() == 1 ? "Register sucessful" : "Register failure";
                 }
                 catch (Exception ex)
