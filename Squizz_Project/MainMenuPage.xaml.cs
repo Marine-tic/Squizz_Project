@@ -41,8 +41,8 @@ namespace Squizz_Project
         /// <param name="e"></param>
         private void Play_Click(object sender, TappedRoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(this.ActualWidth);
-            System.Diagnostics.Debug.WriteLine(this.ActualHeight);
+          //  System.Diagnostics.Debug.WriteLine(this.ActualWidth);
+          //  System.Diagnostics.Debug.WriteLine(this.ActualHeight);
 
             currentNumberQuestion = 1;
             Application.Current.Resources["compteur"] = currentNumberQuestion;
@@ -58,7 +58,7 @@ namespace Squizz_Project
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
 
-            if (typePartie == 0)
+            if (typePartie == 1)
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
                 Frame.Navigate(typeof(ChoiceGameInterface));

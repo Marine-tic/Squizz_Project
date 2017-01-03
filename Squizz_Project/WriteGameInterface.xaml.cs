@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -16,21 +18,31 @@ namespace Squizz_Project
     /// </summary>
     public sealed partial class WriteGameInterface : Page
     {
-        private Question question;
+        private IList<Question> listQuestions = new List<Question>();
+        
 
         //variable pour Timer
         private DispatcherTimer aTimer;
-        private double basetime;
-        private double currentTimer;
+        private int basetime;
+        private int currentTimer;
+        private int idQuestion = 0;
 
         private int currentNumberQuestion;
-
 
         public WriteGameInterface()
         {
             this.InitializeComponent();
-            if ((int)Application.Current.Resources["timer"] == -1)
-                Application.Current.Resources["timer"] = 30.0;
+
+            try
+            {
+                if ((int)Application.Current.Resources["timer"] == -1)
+                    Application.Current.Resources["timer"] = 30;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+           
 
 
             Frame root = Window.Current.Content as Frame;
@@ -46,25 +58,43 @@ namespace Squizz_Project
             aTimer.Tick += timer_Tick;
 
             setTimer();
+
+
         }
 
         private void initGame()
         {
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
-            question = new Question(1, "scott pilgrim the game", "ms-appx://Squizz_Project/Assets/GamePicture/scott.jpg", 0);
+            listQuestions.Add(new Question(1, "scott pilgrim the game", "ms-appx://Squizz_Project/Assets/GamePicture/scott.jpg", 0));
+            listQuestions.Add(new Question(2, "dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0));
+            listQuestions.Add(new Question(3, "hitman", "ms-appx://Squizz_Project/Assets/GamePicture/hitman.jpg", 0));
+            listQuestions.Add(new Question(4, "gta5", "ms-appx://Squizz_Project/Assets/GamePicture/gta5.jpg", 0));
+            listQuestions.Add(new Question(5, "tombraider", "ms-appx://Squizz_Project/Assets/GamePicture/tombraider.jpg", 0));
             // Telecharger et loader toutes les images dans le projet (pour pouvoir les charger lors de l'instanciation de l'objet)
             //OK
-
-            // Changer l'image courante par celle de la question
-            BitmapImage myBitmapImage = new BitmapImage(new Uri(question.UrlImage));
+            BitmapImage myBitmapImage = new BitmapImage(new Uri(listQuestions[idQuestion].UrlImage));
             picImageGame.Source = myBitmapImage;
-
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
+        }
+
+        /// <summary>
+        /// fonction de génération aléatoire d'interface de jeu
+        /// </summary>
         private void Randomizer()
         {
             Random rand = new Random();
             int typePartie = rand.Next(0, 2);
+            idQuestion = rand.Next(0, 5);
+
+            // Changer l'image courante par celle de la question
+            BitmapImage myBitmapImage = new BitmapImage(new Uri(listQuestions[idQuestion].UrlImage));
+            picImageGame.Source = myBitmapImage;
 
             currentNumberQuestion++;
 
@@ -72,28 +102,31 @@ namespace Squizz_Project
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
                 checkBasetime();
-                Frame.Navigate(typeof(ChoiceGameInterface));
                 aTimer.Stop();
+                setTimer();
+                Frame.Navigate(typeof(ChoiceGameInterface));
+                
             }
             else
             {
                 Application.Current.Resources["compteur"] = currentNumberQuestion;
                 checkBasetime();
-                Frame.Navigate(typeof(WriteGameInterface));
                 aTimer.Stop();
+                setTimer();
+                Frame.Navigate(typeof(WriteGameInterface));
             }
-
         }
 
         private void checkBasetime()
         {
-            if (basetime < 30.0)
+            if (basetime < 30)
             {
-                Application.Current.Resources["timer"] = 30.0;
-                basetime = (double)Application.Current.Resources["timer"];
+                Application.Current.Resources["timer"] = 30;
+                basetime = (int) Application.Current.Resources["timer"];
                 //aTimer.Stop();
             }
         }
+
 
         #region Timer
         /// <summary>
@@ -108,7 +141,9 @@ namespace Squizz_Project
             if (basetime == 0)
             {
                 aTimer.Stop();
-                var dialog = new MessageDialog("Perdu");
+                // Reset du temp quand le temps est fini
+                setTimer();
+                var dialog = new MessageDialog("Time's UP ! Loser !");
                 await dialog.ShowAsync();
                 Frame.Navigate(typeof(ScoreboardPage));
             }
@@ -119,7 +154,7 @@ namespace Squizz_Project
         /// </summary>
         private void setTimer()
         {
-            basetime = (double)Application.Current.Resources["timer"];
+            basetime = (int) Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
             aTimer.Start();
         }
@@ -135,20 +170,38 @@ namespace Squizz_Project
         private async void validateAnswer_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int cpt = 1;
-            if (txtPlayerAnswer.Text.ToLower().Trim() == question.QuestionName)
+
+            // Changer l'image courante par celle de la question
+          /*  BitmapImage myBitmapImage = new BitmapImage(new Uri(listQuestions[idQuestion].UrlImage));
+            picImageGame.Source = myBitmapImage;*/
+            if (txtPlayerAnswer.Text.ToLower().Trim() == listQuestions[idQuestion].QuestionName)
             {
                 var dialog = new MessageDialog("WINNER");
                 await dialog.ShowAsync();
+                // reset du champ et du timer
+                txtPlayerAnswer.Text = "";
+                setTimer();
+                checkBasetime();
                 Randomizer();
-                txtPlayerAnswer.IsReadOnly = true;
+                txtPlayerAnswer.IsReadOnly = false;
+                
+
+
                 cpt++;
             }
             else
             {
                 var dialog = new MessageDialog("LOSER");
                 await dialog.ShowAsync();
-                txtPlayerAnswer.IsReadOnly = true;
+                // reset du champ et du timer
+                txtPlayerAnswer.Text = "";
+                setTimer();
+                checkBasetime();
+                txtPlayerAnswer.IsReadOnly = false;
+               
+               
                 Frame.Navigate(typeof(ScoreboardPage), null);
+               
             }
 
         }
@@ -157,7 +210,7 @@ namespace Squizz_Project
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame.CanGoBack)
+            if (rootFrame != null && rootFrame.CanGoBack)
             {
                 e.Handled = true;
                 rootFrame.GoBack();

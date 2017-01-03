@@ -30,17 +30,12 @@ namespace Squizz_Project
 
  
 
-        private async void btnCreation_Tapped(object sender, TappedRoutedEventArgs e)
+        private void btnCreation_Tapped(object sender, TappedRoutedEventArgs e)
         {
             string msg = "";
-            if (txtMail.Text != "" & txtPassword.Password != "" && txtUsername.Text != "")
+            if (txtMail.Text != "" && txtPassword.Password != "" && txtUsername.Text != "")
             {
-                SquizzWebService.Player newPlayer = new SquizzWebService.Player();
-                newPlayer.Mail = txtMail.Text;
-                newPlayer.Username = txtUsername.Text;
-                newPlayer.Mail = txtPassword.Password;
-
-                msg = await client.SignupPlayerAsync(newPlayer);
+                msg =  client.SignupPlayerAsync(txtUsername.Text, txtPassword.Password, txtMail.Text).Result;
             }
             else
             {
@@ -50,7 +45,7 @@ namespace Squizz_Project
             var dialog = new Windows.UI.Popups.MessageDialog(msg);
             dialog.Commands.Add(new Windows.UI.Popups.UICommand("OK") { Id = 0 });
             dialog.DefaultCommandIndex = 0;
-            var result = await dialog.ShowAsync();
+            var result =  dialog.ShowAsync();
         }
     }
 }

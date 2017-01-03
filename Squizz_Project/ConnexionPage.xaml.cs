@@ -53,7 +53,7 @@ namespace Squizz_Project
             else
             {
                 msg = client.ConnectionCheckPlayerAsync(txtUsernameConnexion.Text, txtUserNamePassword.Password).Result;
-                if(msg.Contains("sucessful"))
+                if(msg.Contains("successful"))
                   this.Frame.Navigate(typeof(MainMenuPage), null);
             }
 

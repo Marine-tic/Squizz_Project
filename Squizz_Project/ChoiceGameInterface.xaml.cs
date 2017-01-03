@@ -5,21 +5,17 @@ using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Squizz_Project.SquizzWebService;
+
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Squizz_Project
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
-    ///
     public sealed partial class ChoiceGameInterface : Page
     {
-        DataManagementClient client = new DataManagementClient();
         // Déclarer une question et 4 propositions
         Question question;
         Question question2;
@@ -33,19 +29,18 @@ namespace Squizz_Project
 
         //variable pour Timer
         private DispatcherTimer aTimer;
-        private double basetime;
+        private int basetime;
 
         //numéro de la question
         private int currentNumberQuestion;
         private int temp;
-
 
         public ChoiceGameInterface()
         {
             this.InitializeComponent();
             temp = (int)Application.Current.Resources["timer"];
             if (temp == -1)
-                Application.Current.Resources["timer"] = 30.0;
+                Application.Current.Resources["timer"] = 30;
 
             currentNumberQuestion = (int)Application.Current.Resources["compteur"];
 
@@ -54,7 +49,6 @@ namespace Squizz_Project
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             initGame();
-
 
             //Timer pour la manche
             this.NavigationCacheMode = NavigationCacheMode.Required;
@@ -67,11 +61,11 @@ namespace Squizz_Project
 
             // Ensuite faire une liste de questions avec une liste de proposition associé à chaque question et prendre un nombre aléatoire pour la sélection de la question
             listeDeQuestion = new Questions();
-            //List<Question> listQuest = client.ge
-            // Remplir les champs en conséquence de la même manière que plus haut.
-            // Remplacer l'evenement OK et PERDU par une nouvelle question s'il y en a une nouvelle ou alors PERDU avec un écran de perdu? à voir en fonction des interfaces déjà présentes
+            // Remplir les champs en conséquence de la même manière que plus haut.// 
+            //Remplacer l'evenement OK et PERDU par une nouvelle question s'il y en a une nouvelle ou alors PERDU avec un écran de perdu? à voir en fonction des interfaces déjà présentes
 
             // Quand tout ça marche ajouter la gestion du score
+            //=> faire un update de la table des joueurs dans ce cas
 
             // Coté online quand dispo
             // Connexion à la BDD pour récupérer la question numéro random ainsi que ses propositions associés et instancier les objets avec les valeurs récupérées de la BDD
@@ -126,24 +120,32 @@ namespace Squizz_Project
             ImageGame.Source = myBitmapImage;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
+        }
+
+        #region Check des questions/réponses
         // Ajouter un tapListener sur chaque proposition et vérifier si la proposition cliquée est la réponse dans ce cas afficher YOU WIN et mettre la case cochée en vert
         // sinon afficher YOU LOSE et mettre la case en rouge
-        private void answerTopLeft_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerTopLeft_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal0, answerTopLeft);
         }
 
-        private void answerTopRight_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerTopRight_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal1, answerTopRight);
         }
 
-        private void answerBottomLeft_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerBottomLeft_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal2, answerBottomLeft);
         }
 
-        private void answerBottomRight_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void answerBottomRight_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CheckWin(proposal3, answerBottomRight);
         }
@@ -155,16 +157,27 @@ namespace Squizz_Project
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 22, 169, 49));
                 var dialog = new MessageDialog(YOU_WIN);
                 await dialog.ShowAsync();
+                // Reset et réinitialisation du timer dans tous les cas
+                setTimer();
+                checkBasetime();
                 Randomizer();
+                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
             }
             else
             {
                 buttonProposal.Background = new SolidColorBrush(Color.FromArgb(255, 169, 22, 22));
                 var dialog = new MessageDialog(YOU_LOSE);
                 await dialog.ShowAsync();
+                 // Reset et réinitialisation du timer dans tous les cas
+                setTimer();
+                checkBasetime();
+                buttonProposal.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
                 Frame.Navigate(typeof(ScoreboardPage), null);
             }
+           
+
         }
+        #endregion
 
         /// <summary>
         /// Permet de switcher de type de question
@@ -208,17 +221,17 @@ namespace Squizz_Project
 
         private void setTimer()
         {
-            basetime = (double)Application.Current.Resources["timer"];
+            basetime = (int) Application.Current.Resources["timer"];
             lblTimer.Text = basetime.ToString();
             aTimer.Start();
         }
 
         private void checkBasetime()
         {
-            if (basetime < 30.0)
+            if (basetime < 30)
             {
-                Application.Current.Resources["timer"] = 30.0;
-                basetime = (double)Application.Current.Resources["timer"];
+                Application.Current.Resources["timer"] = 30;
+                basetime = (int) Application.Current.Resources["timer"];
             }
         }
 
