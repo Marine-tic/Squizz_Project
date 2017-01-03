@@ -64,6 +64,7 @@ namespace Squizz_Project
 
         private void initGame()
         {
+            lblTitle.Text = "Question " + currentNumberQuestion;
             // Instancier la question et les 4 propositions avec des valeurs en dur dans un premier temps.
             listQuestions.Add(new Question(1, "scott pilgrim the game", "ms-appx://Squizz_Project/Assets/GamePicture/scott.jpg", 0));
             listQuestions.Add(new Question(2, "dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0));
@@ -116,6 +117,14 @@ namespace Squizz_Project
                 Frame.Navigate(typeof(WriteGameInterface));
             }
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
+        }
+
 
         private void checkBasetime()
         {

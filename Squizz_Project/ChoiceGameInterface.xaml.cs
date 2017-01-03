@@ -98,6 +98,13 @@ namespace Squizz_Project
             answerBottomRight.Content = proposal3.ProposalName;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentNumberQuestion = (int)Application.Current.Resources["compteur"];
+            lblTitle.Text = "Question " + currentNumberQuestion;
+        }
+
         private void Question1()
         {
             question = new Question(0, "Dishonored", "ms-appx://Squizz_Project/Assets/GamePicture/dishonored.jpg", 0);
